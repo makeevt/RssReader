@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4CBEDEBB220E37EB004CB288 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBEDEBA220E37EB004CB288 /* UIImageView+Extensions.swift */; };
+		4CBEDEBD220E43FD004CB288 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBEDEBC220E43FD004CB288 /* UIColor+Extensions.swift */; };
 		4CFDAE1F220A1F3300D5442A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFDAE1E220A1F3300D5442A /* AppDelegate.swift */; };
 		4CFDAE27220A1F3300D5442A /* RssReader.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4CFDAE25220A1F3300D5442A /* RssReader.xcdatamodeld */; };
 		4CFDAE29220A1F3500D5442A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CFDAE28220A1F3500D5442A /* Assets.xcassets */; };
@@ -26,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4CBEDEBA220E37EB004CB288 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
+		4CBEDEBC220E43FD004CB288 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		4CFDAE1B220A1F3300D5442A /* RssReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RssReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CFDAE1E220A1F3300D5442A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CFDAE26220A1F3300D5442A /* RssReader.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RssReader.xcdatamodel; sourceTree = "<group>"; };
@@ -132,6 +136,8 @@
 			children = (
 				4CFDAE60220A380B00D5442A /* String+Extensions.swift */,
 				4CFDAE56220A2FF500D5442A /* Thread+Extensions.swift */,
+				4CBEDEBC220E43FD004CB288 /* UIColor+Extensions.swift */,
+				4CBEDEBA220E37EB004CB288 /* UIImageView+Extensions.swift */,
 				4CFDAE45220A2DC400D5442A /* UIFont+Extensions.swift */,
 			);
 			path = Extensions;
@@ -272,12 +278,14 @@
 				"${BUILT_PRODUCTS_DIR}/Fashion/Fashion.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/QueryKit/QueryKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Fashion.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QueryKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -294,9 +302,11 @@
 				4CFDAE53220A2FB400D5442A /* ConfigureAppUseCase.swift in Sources */,
 				4CFDAE61220A380B00D5442A /* String+Extensions.swift in Sources */,
 				4CFDAE27220A1F3300D5442A /* RssReader.xcdatamodeld in Sources */,
+				4CBEDEBD220E43FD004CB288 /* UIColor+Extensions.swift in Sources */,
 				4CFDAE38220A2AF800D5442A /* MainStylesheet.swift in Sources */,
 				4CFDAE57220A2FF500D5442A /* Thread+Extensions.swift in Sources */,
 				4CFDAE50220A2FB400D5442A /* ConfigureAppConfigurator.swift in Sources */,
+				4CBEDEBB220E37EB004CB288 /* UIImageView+Extensions.swift in Sources */,
 				4CFDAE51220A2FB400D5442A /* ConfigureAppPresenter.swift in Sources */,
 				4CFDAE52220A2FB400D5442A /* ConfigureAppRouter.swift in Sources */,
 				4CFDAE46220A2DC400D5442A /* UIFont+Extensions.swift in Sources */,

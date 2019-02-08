@@ -6,5 +6,6 @@ target 'RssReader' do
   pod 'Fashion', '~> 4.0.0'
   pod 'QueryKit', '~> 0.13.0'
   pod 'IQKeyboardManagerSwift', '~> 6.2.0'
+  pod 'SDWebImage', '~> 4.4.5'
 
 end

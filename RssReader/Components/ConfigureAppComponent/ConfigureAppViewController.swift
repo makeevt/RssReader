@@ -6,11 +6,10 @@ class ConfigureAppViewController: UIViewController {
     
     var presenter: ConfigureAppPresenter!
     
+    @IBOutlet weak var imageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.backgroundColor = UIColor.white
-        
-        presenter.viewLoaded()
+        self.presenter.viewLoaded()
+        self.imageView.startImageLoading(urlPath: "https://looke.com.ua/pic/201406/1920x1080/look.com.ua-104898.jpg")
     }
 }
