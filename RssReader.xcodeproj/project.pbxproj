@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		4CBEDEBB220E37EB004CB288 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBEDEBA220E37EB004CB288 /* UIImageView+Extensions.swift */; };
 		4CBEDEBD220E43FD004CB288 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBEDEBC220E43FD004CB288 /* UIColor+Extensions.swift */; };
+		4CBEDEBF220E4637004CB288 /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBEDEBE220E4637004CB288 /* ServiceLocator.swift */; };
+		4CBEDEC2220E46BB004CB288 /* RSSModel+Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBEDEC1220E46BB004CB288 /* RSSModel+Loading.swift */; };
+		4CBEDEC9220E46DA004CB288 /* Bundle+ManagedObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBEDEC5220E46D9004CB288 /* Bundle+ManagedObjectModel.swift */; };
+		4CBEDECA220E46DA004CB288 /* NSPersistentStoreCoordinator+SetupHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBEDEC6220E46D9004CB288 /* NSPersistentStoreCoordinator+SetupHelpers.swift */; };
+		4CBEDECB220E46DA004CB288 /* RSSPersistentStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBEDEC8220E46D9004CB288 /* RSSPersistentStack.swift */; };
+		4CBEDECE220E471D004CB288 /* Synchronized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBEDECD220E471D004CB288 /* Synchronized.swift */; };
+		4CBEDED0220E4750004CB288 /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBEDECF220E4750004CB288 /* URL+Extensions.swift */; };
+		4CBEDED2220E4769004CB288 /* FileManager+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBEDED1220E4769004CB288 /* FileManager+Extensions.swift */; };
 		4CFDAE1F220A1F3300D5442A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFDAE1E220A1F3300D5442A /* AppDelegate.swift */; };
 		4CFDAE27220A1F3300D5442A /* RssReader.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4CFDAE25220A1F3300D5442A /* RssReader.xcdatamodeld */; };
 		4CFDAE29220A1F3500D5442A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CFDAE28220A1F3500D5442A /* Assets.xcassets */; };
@@ -30,6 +38,14 @@
 /* Begin PBXFileReference section */
 		4CBEDEBA220E37EB004CB288 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 		4CBEDEBC220E43FD004CB288 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		4CBEDEBE220E4637004CB288 /* ServiceLocator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
+		4CBEDEC1220E46BB004CB288 /* RSSModel+Loading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RSSModel+Loading.swift"; sourceTree = "<group>"; };
+		4CBEDEC5220E46D9004CB288 /* Bundle+ManagedObjectModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+ManagedObjectModel.swift"; sourceTree = "<group>"; };
+		4CBEDEC6220E46D9004CB288 /* NSPersistentStoreCoordinator+SetupHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSPersistentStoreCoordinator+SetupHelpers.swift"; sourceTree = "<group>"; };
+		4CBEDEC8220E46D9004CB288 /* RSSPersistentStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSPersistentStack.swift; sourceTree = "<group>"; };
+		4CBEDECD220E471D004CB288 /* Synchronized.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Synchronized.swift; sourceTree = "<group>"; };
+		4CBEDECF220E4750004CB288 /* URL+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
+		4CBEDED1220E4769004CB288 /* FileManager+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FileManager+Extensions.swift"; sourceTree = "<group>"; };
 		4CFDAE1B220A1F3300D5442A /* RssReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RssReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CFDAE1E220A1F3300D5442A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CFDAE26220A1F3300D5442A /* RssReader.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RssReader.xcdatamodel; sourceTree = "<group>"; };
@@ -73,6 +89,48 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		4CBEDEC0220E463A004CB288 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				4CBEDEBE220E4637004CB288 /* ServiceLocator.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		4CBEDEC3220E46D9004CB288 /* CoreDataHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				4CBEDEC4220E46D9004CB288 /* Extensions */,
+				4CBEDEC7220E46D9004CB288 /* Stack */,
+			);
+			path = CoreDataHelpers;
+			sourceTree = "<group>";
+		};
+		4CBEDEC4220E46D9004CB288 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4CBEDEC5220E46D9004CB288 /* Bundle+ManagedObjectModel.swift */,
+				4CBEDEC6220E46D9004CB288 /* NSPersistentStoreCoordinator+SetupHelpers.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4CBEDEC7220E46D9004CB288 /* Stack */ = {
+			isa = PBXGroup;
+			children = (
+				4CBEDEC8220E46D9004CB288 /* RSSPersistentStack.swift */,
+			);
+			path = Stack;
+			sourceTree = "<group>";
+		};
+		4CBEDECC220E470B004CB288 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				4CBEDECD220E471D004CB288 /* Synchronized.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		4CFDAE12220A1F3300D5442A = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +158,7 @@
 				4CFDAE3B220A2B0100D5442A /* Supporting Files */,
 				4CFDAE1E220A1F3300D5442A /* AppDelegate.swift */,
 				4CFDAE2A220A1F3500D5442A /* LaunchScreen.storyboard */,
+				4CBEDEC0220E463A004CB288 /* Services */,
 				4CFDAE63220A386E00D5442A /* Model */,
 			);
 			path = RssReader;
@@ -134,11 +193,13 @@
 		4CFDAE44220A2DB100D5442A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				4CBEDED1220E4769004CB288 /* FileManager+Extensions.swift */,
 				4CFDAE60220A380B00D5442A /* String+Extensions.swift */,
 				4CFDAE56220A2FF500D5442A /* Thread+Extensions.swift */,
 				4CBEDEBC220E43FD004CB288 /* UIColor+Extensions.swift */,
 				4CBEDEBA220E37EB004CB288 /* UIImageView+Extensions.swift */,
 				4CFDAE45220A2DC400D5442A /* UIFont+Extensions.swift */,
+				4CBEDECF220E4750004CB288 /* URL+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -159,6 +220,7 @@
 		4CFDAE62220A383E00D5442A /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				4CBEDECC220E470B004CB288 /* Helpers */,
 				4CFDAE44220A2DB100D5442A /* Extensions */,
 			);
 			path = Util;
@@ -167,7 +229,9 @@
 		4CFDAE63220A386E00D5442A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4CBEDEC3220E46D9004CB288 /* CoreDataHelpers */,
 				4CFDAE25220A1F3300D5442A /* RssReader.xcdatamodeld */,
+				4CBEDEC1220E46BB004CB288 /* RSSModel+Loading.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -300,16 +364,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CFDAE53220A2FB400D5442A /* ConfigureAppUseCase.swift in Sources */,
+				4CBEDECE220E471D004CB288 /* Synchronized.swift in Sources */,
 				4CFDAE61220A380B00D5442A /* String+Extensions.swift in Sources */,
+				4CBEDECB220E46DA004CB288 /* RSSPersistentStack.swift in Sources */,
+				4CBEDECA220E46DA004CB288 /* NSPersistentStoreCoordinator+SetupHelpers.swift in Sources */,
 				4CFDAE27220A1F3300D5442A /* RssReader.xcdatamodeld in Sources */,
 				4CBEDEBD220E43FD004CB288 /* UIColor+Extensions.swift in Sources */,
+				4CBEDEC9220E46DA004CB288 /* Bundle+ManagedObjectModel.swift in Sources */,
+				4CBEDED2220E4769004CB288 /* FileManager+Extensions.swift in Sources */,
 				4CFDAE38220A2AF800D5442A /* MainStylesheet.swift in Sources */,
 				4CFDAE57220A2FF500D5442A /* Thread+Extensions.swift in Sources */,
+				4CBEDEBF220E4637004CB288 /* ServiceLocator.swift in Sources */,
 				4CFDAE50220A2FB400D5442A /* ConfigureAppConfigurator.swift in Sources */,
+				4CBEDEC2220E46BB004CB288 /* RSSModel+Loading.swift in Sources */,
 				4CBEDEBB220E37EB004CB288 /* UIImageView+Extensions.swift in Sources */,
 				4CFDAE51220A2FB400D5442A /* ConfigureAppPresenter.swift in Sources */,
 				4CFDAE52220A2FB400D5442A /* ConfigureAppRouter.swift in Sources */,
 				4CFDAE46220A2DC400D5442A /* UIFont+Extensions.swift in Sources */,
+				4CBEDED0220E4750004CB288 /* URL+Extensions.swift in Sources */,
 				4CFDAE1F220A1F3300D5442A /* AppDelegate.swift in Sources */,
 				4CFDAE54220A2FB400D5442A /* ConfigureAppViewController.swift in Sources */,
 			);

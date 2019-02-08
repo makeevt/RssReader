@@ -13,10 +13,10 @@ class ConfigureAppPresenterImpl: ConfigureAppPresenter {
     weak var viewController: ConfigureAppViewController!
     
     func viewLoaded() {
-//        useCase.constructServiceLocator { (locator) in
-//            Thread.do_onMainThread {
+        useCase.constructServiceLocator { (locator) in
+            Thread.do_onMainThread {
 //                self.router.showMenuScreen(locator: locator)
-//            }
-//        }
+            }
+        }
     }
 }

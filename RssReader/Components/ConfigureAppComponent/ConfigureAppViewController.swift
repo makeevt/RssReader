@@ -10,6 +10,6 @@ class ConfigureAppViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.presenter.viewLoaded()
-        self.imageView.startImageLoading(urlPath: "https://looke.com.ua/pic/201406/1920x1080/look.com.ua-104898.jpg")
+        self.imageView.startImageLoading(urlPath: "https://look.com.ua/pic/201406/1920x1080/look.com.ua-104898.jpg")
     }
 }
