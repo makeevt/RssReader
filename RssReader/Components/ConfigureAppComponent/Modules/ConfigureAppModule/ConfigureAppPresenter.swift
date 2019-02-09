@@ -15,7 +15,7 @@ class ConfigureAppPresenterImpl: ConfigureAppPresenter {
     func viewLoaded() {
         useCase.constructServiceLocator { (locator) in
             Thread.do_onMainThread {
-//                self.router.showMenuScreen(locator: locator)
+                self.router.showRssFeed(locator: locator)
             }
         }
     }

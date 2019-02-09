@@ -25,8 +25,8 @@ struct MainStylesheet: Stylesheet {
                                                               NSAttributedString.Key.foregroundColor: UIColor.white,
                                                               NSAttributedString.Key.kern: 0.7]
             navigationBar.isTranslucent                    = false
-            navigationBar.barTintColor                     = UIColor.gray
-            navigationBar.backgroundColor                  = UIColor.gray
+            navigationBar.barTintColor                     = UIColor.rssOrange
+            navigationBar.backgroundColor                  = UIColor.rssOrange
             navigationBar.backIndicatorImage               = UIImage(named: "navigationbar.icon.back")
             navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "navigationbar.icon.back")
         }

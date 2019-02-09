@@ -13,6 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enable = true
         
         let window = UIWindow(frame: UIScreen.main.bounds)
+        ViewDispatcher.shared.window = window
         
         let viewController = ConfigureAppViewController()
         let configurator = ConfigureAppConfiguratorImpl()

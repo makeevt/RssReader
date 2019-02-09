@@ -17,6 +17,15 @@
 		4CBEDECE220E471D004CB288 /* Synchronized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBEDECD220E471D004CB288 /* Synchronized.swift */; };
 		4CBEDED0220E4750004CB288 /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBEDECF220E4750004CB288 /* URL+Extensions.swift */; };
 		4CBEDED2220E4769004CB288 /* FileManager+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBEDED1220E4769004CB288 /* FileManager+Extensions.swift */; };
+		4CBEDED4220E4BAF004CB288 /* ViewDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBEDED3220E4BAF004CB288 /* ViewDispatcher.swift */; };
+		4CBEDEDB220E4C79004CB288 /* RssFeedConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBEDEDA220E4C79004CB288 /* RssFeedConfigurator.swift */; };
+		4CBEDEDE220E4C87004CB288 /* RssFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBEDEDC220E4C87004CB288 /* RssFeedViewController.swift */; };
+		4CBEDEDF220E4C87004CB288 /* RssFeedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CBEDEDD220E4C87004CB288 /* RssFeedViewController.xib */; };
+		4CBEDEE1220E4C90004CB288 /* RssFeedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBEDEE0220E4C90004CB288 /* RssFeedPresenter.swift */; };
+		4CBEDEE3220E4C98004CB288 /* RssFeedInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBEDEE2220E4C98004CB288 /* RssFeedInteractor.swift */; };
+		4CBEDEE5220E4C9F004CB288 /* RssFeedRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBEDEE4220E4C9F004CB288 /* RssFeedRouter.swift */; };
+		4CBEDEE8220E4D60004CB288 /* RssFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBEDEE6220E4D60004CB288 /* RssFeedTableViewCell.swift */; };
+		4CBEDEE9220E4D60004CB288 /* RssFeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CBEDEE7220E4D60004CB288 /* RssFeedTableViewCell.xib */; };
 		4CFDAE1F220A1F3300D5442A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFDAE1E220A1F3300D5442A /* AppDelegate.swift */; };
 		4CFDAE27220A1F3300D5442A /* RssReader.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4CFDAE25220A1F3300D5442A /* RssReader.xcdatamodeld */; };
 		4CFDAE29220A1F3500D5442A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CFDAE28220A1F3500D5442A /* Assets.xcassets */; };
@@ -46,6 +55,15 @@
 		4CBEDECD220E471D004CB288 /* Synchronized.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Synchronized.swift; sourceTree = "<group>"; };
 		4CBEDECF220E4750004CB288 /* URL+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
 		4CBEDED1220E4769004CB288 /* FileManager+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FileManager+Extensions.swift"; sourceTree = "<group>"; };
+		4CBEDED3220E4BAF004CB288 /* ViewDispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewDispatcher.swift; sourceTree = "<group>"; };
+		4CBEDEDA220E4C79004CB288 /* RssFeedConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssFeedConfigurator.swift; sourceTree = "<group>"; };
+		4CBEDEDC220E4C87004CB288 /* RssFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssFeedViewController.swift; sourceTree = "<group>"; };
+		4CBEDEDD220E4C87004CB288 /* RssFeedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RssFeedViewController.xib; sourceTree = "<group>"; };
+		4CBEDEE0220E4C90004CB288 /* RssFeedPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssFeedPresenter.swift; sourceTree = "<group>"; };
+		4CBEDEE2220E4C98004CB288 /* RssFeedInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssFeedInteractor.swift; sourceTree = "<group>"; };
+		4CBEDEE4220E4C9F004CB288 /* RssFeedRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssFeedRouter.swift; sourceTree = "<group>"; };
+		4CBEDEE6220E4D60004CB288 /* RssFeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssFeedTableViewCell.swift; sourceTree = "<group>"; };
+		4CBEDEE7220E4D60004CB288 /* RssFeedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RssFeedTableViewCell.xib; sourceTree = "<group>"; };
 		4CFDAE1B220A1F3300D5442A /* RssReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RssReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CFDAE1E220A1F3300D5442A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CFDAE26220A1F3300D5442A /* RssReader.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RssReader.xcdatamodel; sourceTree = "<group>"; };
@@ -127,8 +145,69 @@
 			isa = PBXGroup;
 			children = (
 				4CBEDECD220E471D004CB288 /* Synchronized.swift */,
+				4CBEDED3220E4BAF004CB288 /* ViewDispatcher.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		4CBEDED5220E4BD2004CB288 /* RssFeedComponent */ = {
+			isa = PBXGroup;
+			children = (
+				4CBEDED8220E4C63004CB288 /* Modules */,
+			);
+			path = RssFeedComponent;
+			sourceTree = "<group>";
+		};
+		4CBEDED6220E4C46004CB288 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				4CBEDED7220E4C4B004CB288 /* ConfigureAppModule */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		4CBEDED7220E4C4B004CB288 /* ConfigureAppModule */ = {
+			isa = PBXGroup;
+			children = (
+				4CFDAE4A220A2FB400D5442A /* ConfigureAppConfigurator.swift */,
+				4CFDAE4B220A2FB400D5442A /* ConfigureAppPresenter.swift */,
+				4CFDAE4C220A2FB400D5442A /* ConfigureAppRouter.swift */,
+				4CFDAE4D220A2FB400D5442A /* ConfigureAppUseCase.swift */,
+				4CFDAE4E220A2FB400D5442A /* ConfigureAppViewController.swift */,
+				4CFDAE4F220A2FB400D5442A /* ConfigureAppViewController.xib */,
+			);
+			path = ConfigureAppModule;
+			sourceTree = "<group>";
+		};
+		4CBEDED8220E4C63004CB288 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				4CBEDED9220E4C68004CB288 /* RssFeedModule */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		4CBEDED9220E4C68004CB288 /* RssFeedModule */ = {
+			isa = PBXGroup;
+			children = (
+				4CBEDEEA220E4D63004CB288 /* Subviews */,
+				4CBEDEDA220E4C79004CB288 /* RssFeedConfigurator.swift */,
+				4CBEDEDC220E4C87004CB288 /* RssFeedViewController.swift */,
+				4CBEDEDD220E4C87004CB288 /* RssFeedViewController.xib */,
+				4CBEDEE0220E4C90004CB288 /* RssFeedPresenter.swift */,
+				4CBEDEE2220E4C98004CB288 /* RssFeedInteractor.swift */,
+				4CBEDEE4220E4C9F004CB288 /* RssFeedRouter.swift */,
+			);
+			path = RssFeedModule;
+			sourceTree = "<group>";
+		};
+		4CBEDEEA220E4D63004CB288 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				4CBEDEE6220E4D60004CB288 /* RssFeedTableViewCell.swift */,
+				4CBEDEE7220E4D60004CB288 /* RssFeedTableViewCell.xib */,
+			);
+			path = Subviews;
 			sourceTree = "<group>";
 		};
 		4CFDAE12220A1F3300D5442A = {
@@ -185,6 +264,7 @@
 		4CFDAE3E220A2B5500D5442A /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				4CBEDED5220E4BD2004CB288 /* RssFeedComponent */,
 				4CFDAE49220A2FB400D5442A /* ConfigureAppComponent */,
 			);
 			path = Components;
@@ -207,12 +287,7 @@
 		4CFDAE49220A2FB400D5442A /* ConfigureAppComponent */ = {
 			isa = PBXGroup;
 			children = (
-				4CFDAE4A220A2FB400D5442A /* ConfigureAppConfigurator.swift */,
-				4CFDAE4B220A2FB400D5442A /* ConfigureAppPresenter.swift */,
-				4CFDAE4C220A2FB400D5442A /* ConfigureAppRouter.swift */,
-				4CFDAE4D220A2FB400D5442A /* ConfigureAppUseCase.swift */,
-				4CFDAE4E220A2FB400D5442A /* ConfigureAppViewController.swift */,
-				4CFDAE4F220A2FB400D5442A /* ConfigureAppViewController.xib */,
+				4CBEDED6220E4C46004CB288 /* Modules */,
 			);
 			path = ConfigureAppComponent;
 			sourceTree = "<group>";
@@ -229,9 +304,9 @@
 		4CFDAE63220A386E00D5442A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				4CBEDEC3220E46D9004CB288 /* CoreDataHelpers */,
 				4CFDAE25220A1F3300D5442A /* RssReader.xcdatamodeld */,
 				4CBEDEC1220E46BB004CB288 /* RSSModel+Loading.swift */,
+				4CBEDEC3220E46D9004CB288 /* CoreDataHelpers */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -304,10 +379,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CBEDEE9220E4D60004CB288 /* RssFeedTableViewCell.xib in Resources */,
 				4CFDAE2C220A1F3500D5442A /* LaunchScreen.storyboard in Resources */,
 				4CFDAE55220A2FB400D5442A /* ConfigureAppViewController.xib in Resources */,
 				4CFDAE3D220A2B4D00D5442A /* Localizable.strings in Resources */,
 				4CFDAE29220A1F3500D5442A /* Assets.xcassets in Resources */,
+				4CBEDEDF220E4C87004CB288 /* RssFeedViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,7 +440,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CBEDEE8220E4D60004CB288 /* RssFeedTableViewCell.swift in Sources */,
 				4CFDAE53220A2FB400D5442A /* ConfigureAppUseCase.swift in Sources */,
+				4CBEDEDE220E4C87004CB288 /* RssFeedViewController.swift in Sources */,
 				4CBEDECE220E471D004CB288 /* Synchronized.swift in Sources */,
 				4CFDAE61220A380B00D5442A /* String+Extensions.swift in Sources */,
 				4CBEDECB220E46DA004CB288 /* RSSPersistentStack.swift in Sources */,
@@ -375,11 +454,16 @@
 				4CFDAE38220A2AF800D5442A /* MainStylesheet.swift in Sources */,
 				4CFDAE57220A2FF500D5442A /* Thread+Extensions.swift in Sources */,
 				4CBEDEBF220E4637004CB288 /* ServiceLocator.swift in Sources */,
+				4CBEDEE1220E4C90004CB288 /* RssFeedPresenter.swift in Sources */,
 				4CFDAE50220A2FB400D5442A /* ConfigureAppConfigurator.swift in Sources */,
+				4CBEDEDB220E4C79004CB288 /* RssFeedConfigurator.swift in Sources */,
 				4CBEDEC2220E46BB004CB288 /* RSSModel+Loading.swift in Sources */,
+				4CBEDEE3220E4C98004CB288 /* RssFeedInteractor.swift in Sources */,
 				4CBEDEBB220E37EB004CB288 /* UIImageView+Extensions.swift in Sources */,
 				4CFDAE51220A2FB400D5442A /* ConfigureAppPresenter.swift in Sources */,
 				4CFDAE52220A2FB400D5442A /* ConfigureAppRouter.swift in Sources */,
+				4CBEDEE5220E4C9F004CB288 /* RssFeedRouter.swift in Sources */,
+				4CBEDED4220E4BAF004CB288 /* ViewDispatcher.swift in Sources */,
 				4CFDAE46220A2DC400D5442A /* UIFont+Extensions.swift in Sources */,
 				4CBEDED0220E4750004CB288 /* URL+Extensions.swift in Sources */,
 				4CFDAE1F220A1F3300D5442A /* AppDelegate.swift in Sources */,
