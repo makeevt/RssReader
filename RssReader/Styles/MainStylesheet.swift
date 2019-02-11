@@ -16,6 +16,7 @@ struct MainStylesheet: Stylesheet {
     func define() {
         
         //MARK:- UINavigationBar
+        
         register(Styles.UINavigationBar.default) { (navigationBar:UINavigationBar) in
             navigationBar.tintColor = UIColor.white
             navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)

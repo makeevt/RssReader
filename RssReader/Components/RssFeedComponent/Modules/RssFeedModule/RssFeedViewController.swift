@@ -8,7 +8,7 @@ class RssFeedViewController: UIViewController, RssFeedView {
     private struct Constants {
         static var screenTitle = "rssFeed.screenTitle".localized.uppercased()
         static let rssFeedCellReuseID = "RssFeedTableViewCellID"
-        static let rowHeight: CGFloat = 90.0
+        static let estimatedRowHeight: CGFloat = 90.0
     }
     
     //MARK:- Public properties
@@ -23,7 +23,7 @@ class RssFeedViewController: UIViewController, RssFeedView {
     
     //MARK:- Private properties
     
-//    var viewModels: [CurrencyRateViewModel] = []
+    var viewModels: [RssItem] = []
     
     
     // MARK: - Lifecycle
@@ -40,22 +40,25 @@ class RssFeedViewController: UIViewController, RssFeedView {
     
     // MARK: - Public methods
     
-//    func configure(viewModels: [CurrencyRateViewModel]) {
-//        self.viewModels = viewModels
-//        self.tableView.reloadData()
-//    }
+    func configure(viewModels: [RssItem]) {
+        self.viewModels = viewModels
+        self.tableView.reloadData()
+    }
     
     // MARK: - Private methods
     
     private func configureTableView() {
-//        let nibName = UINib(nibName: "CurrencyRateTableViewCell", bundle: nil)
-//        self.tableView.register(nibName, forCellReuseIdentifier: Constants.currencyRateCellReuseID)
-//        self.tableView.delegate = self
-//        self.tableView.dataSource = self
-//        self.tableView.rowHeight = Constants.rowHeight
+        let nibName = UINib(nibName: "RssFeedTableViewCell", bundle: nil)
+        self.tableView.register(nibName, forCellReuseIdentifier: Constants.rssFeedCellReuseID)
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        self.tableView.rowHeight = UITableView.automaticDimension
+        self.tableView.estimatedRowHeight = Constants.estimatedRowHeight
     }
     
 }
+
+// MARK: - UITableViewDelegate, UITableViewDataSource
 
 extension RssFeedViewController: UITableViewDelegate, UITableViewDataSource {
     
@@ -64,8 +67,7 @@ extension RssFeedViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-//        return self.viewModels.count
+        return self.viewModels.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -73,8 +75,11 @@ extension RssFeedViewController: UITableViewDelegate, UITableViewDataSource {
             fatalError()
         }
         
-//        cell.delegate = self
-//        cell.viewModel = self.viewModels[indexPath.row]
+        guard let item = self.viewModels[safe: indexPath.row] else {
+            fatalError()
+        }
+
+        cell.viewModel = item
         
         return cell
     }

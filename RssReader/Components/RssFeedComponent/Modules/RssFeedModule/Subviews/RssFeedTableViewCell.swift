@@ -1,24 +1,47 @@
-//
-//  RssFeedTableViewCell.swift
-//  RssReader
-//
-//  Created by makeev on 09.02.2019.
-//  Copyright © 2019 makeev. All rights reserved.
-//
 
 import UIKit
 
 class RssFeedTableViewCell: UITableViewCell {
+    
+    //MARK:- Outlets
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    @IBOutlet private weak var previewImageView: UIImageView!
+    @IBOutlet private weak var dateLabel: UILabel!
+    @IBOutlet private weak var descriptionLabel: UILabel!
+    
+    //MARK:- Public Properties
+    
+    var viewModel: RssItem? {
+        didSet {
+            self.updateInterface()
+        }
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    //MARK:- Public Methods
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.previewImageView.stopImageLoading()
+        self.resetInterface()
     }
+    
+    //MARK:- Private methods
+    
+    private func updateInterface() {
+        guard let viewModel = self.viewModel else {
+            self.resetInterface()
+            return
+        }
+        self.previewImageView.startImageLoading(urlPath: viewModel.img.first ?? "")
+        self.dateLabel.text = viewModel.date
+        self.descriptionLabel.text = viewModel.description
+    }
+    
+    private func resetInterface() {
+        self.previewImageView.image = nil
+        self.dateLabel.text = ""
+        self.descriptionLabel.text = ""
+    }
+    
     
 }

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C6BC53D221229CD005D968E /* XmlParserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6BC53C221229CD005D968E /* XmlParserManager.swift */; };
+		4C6BC53F221229DE005D968E /* RssItemBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6BC53E221229DE005D968E /* RssItemBuilder.swift */; };
+		4C6BC541221229EF005D968E /* RssItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6BC540221229EF005D968E /* RssItem.swift */; };
+		4C6BC54322122B03005D968E /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6BC54222122B03005D968E /* Collection+Extensions.swift */; };
 		4CBEDEBB220E37EB004CB288 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBEDEBA220E37EB004CB288 /* UIImageView+Extensions.swift */; };
 		4CBEDEBD220E43FD004CB288 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBEDEBC220E43FD004CB288 /* UIColor+Extensions.swift */; };
 		4CBEDEBF220E4637004CB288 /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBEDEBE220E4637004CB288 /* ServiceLocator.swift */; };
@@ -45,6 +49,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C6BC53C221229CD005D968E /* XmlParserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XmlParserManager.swift; sourceTree = "<group>"; };
+		4C6BC53E221229DE005D968E /* RssItemBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssItemBuilder.swift; sourceTree = "<group>"; };
+		4C6BC540221229EF005D968E /* RssItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssItem.swift; sourceTree = "<group>"; };
+		4C6BC54222122B03005D968E /* Collection+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extensions.swift"; sourceTree = "<group>"; };
 		4CBEDEBA220E37EB004CB288 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 		4CBEDEBC220E43FD004CB288 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		4CBEDEBE220E4637004CB288 /* ServiceLocator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
@@ -105,6 +113,23 @@
 				90C5D0AFA68E66CB367A2059 /* Pods-RssReader.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		4C6BC53A2212298D005D968E /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				4C6BC53C221229CD005D968E /* XmlParserManager.swift */,
+				4C6BC53E221229DE005D968E /* RssItemBuilder.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		4C6BC53B22122999005D968E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4C6BC540221229EF005D968E /* RssItem.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		4CBEDEC0220E463A004CB288 /* Services */ = {
@@ -190,6 +215,8 @@
 		4CBEDED9220E4C68004CB288 /* RssFeedModule */ = {
 			isa = PBXGroup;
 			children = (
+				4C6BC53B22122999005D968E /* Models */,
+				4C6BC53A2212298D005D968E /* Helpers */,
 				4CBEDEEA220E4D63004CB288 /* Subviews */,
 				4CBEDEDA220E4C79004CB288 /* RssFeedConfigurator.swift */,
 				4CBEDEDC220E4C87004CB288 /* RssFeedViewController.swift */,
@@ -273,6 +300,7 @@
 		4CFDAE44220A2DB100D5442A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				4C6BC54222122B03005D968E /* Collection+Extensions.swift */,
 				4CBEDED1220E4769004CB288 /* FileManager+Extensions.swift */,
 				4CFDAE60220A380B00D5442A /* String+Extensions.swift */,
 				4CFDAE56220A2FF500D5442A /* Thread+Extensions.swift */,
@@ -441,6 +469,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CBEDEE8220E4D60004CB288 /* RssFeedTableViewCell.swift in Sources */,
+				4C6BC53D221229CD005D968E /* XmlParserManager.swift in Sources */,
 				4CFDAE53220A2FB400D5442A /* ConfigureAppUseCase.swift in Sources */,
 				4CBEDEDE220E4C87004CB288 /* RssFeedViewController.swift in Sources */,
 				4CBEDECE220E471D004CB288 /* Synchronized.swift in Sources */,
@@ -452,6 +481,7 @@
 				4CBEDEC9220E46DA004CB288 /* Bundle+ManagedObjectModel.swift in Sources */,
 				4CBEDED2220E4769004CB288 /* FileManager+Extensions.swift in Sources */,
 				4CFDAE38220A2AF800D5442A /* MainStylesheet.swift in Sources */,
+				4C6BC53F221229DE005D968E /* RssItemBuilder.swift in Sources */,
 				4CFDAE57220A2FF500D5442A /* Thread+Extensions.swift in Sources */,
 				4CBEDEBF220E4637004CB288 /* ServiceLocator.swift in Sources */,
 				4CBEDEE1220E4C90004CB288 /* RssFeedPresenter.swift in Sources */,
@@ -461,11 +491,13 @@
 				4CBEDEE3220E4C98004CB288 /* RssFeedInteractor.swift in Sources */,
 				4CBEDEBB220E37EB004CB288 /* UIImageView+Extensions.swift in Sources */,
 				4CFDAE51220A2FB400D5442A /* ConfigureAppPresenter.swift in Sources */,
+				4C6BC541221229EF005D968E /* RssItem.swift in Sources */,
 				4CFDAE52220A2FB400D5442A /* ConfigureAppRouter.swift in Sources */,
 				4CBEDEE5220E4C9F004CB288 /* RssFeedRouter.swift in Sources */,
 				4CBEDED4220E4BAF004CB288 /* ViewDispatcher.swift in Sources */,
 				4CFDAE46220A2DC400D5442A /* UIFont+Extensions.swift in Sources */,
 				4CBEDED0220E4750004CB288 /* URL+Extensions.swift in Sources */,
+				4C6BC54322122B03005D968E /* Collection+Extensions.swift in Sources */,
 				4CFDAE1F220A1F3300D5442A /* AppDelegate.swift in Sources */,
 				4CFDAE54220A2FB400D5442A /* ConfigureAppViewController.swift in Sources */,
 			);

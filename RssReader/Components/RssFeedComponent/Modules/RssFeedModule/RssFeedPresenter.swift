@@ -2,7 +2,7 @@
 import Foundation
 
 protocol RssFeedView: class {
-//    func configure(viewModels: [CurrencyRateViewModel])
+    func configure(viewModels: [RssItem])
 }
 
 protocol RssFeedPresenter: class {
@@ -23,7 +23,7 @@ class RssFeedPresenterImpl: RssFeedPresenter {
     }
     
     func didTriggerViewReadyEvent() {
-//        let currencies = self.interactor.obtainCurrencies()
-//        self.view?.configure(viewModels: currencies)
+        let rssItems = self.interactor.obtainRssItems()
+        self.view?.configure(viewModels: rssItems)
     }
 }
