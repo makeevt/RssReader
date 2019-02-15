@@ -11,3 +11,5 @@
 
 "rssFeed.cell.titlePlaceholder"     = "Unknown title";
 "rssFeed.cell.datePlaceholder"      = "Unknown date";
+
+"newsDetails.screenTitle"               = "NEWS";

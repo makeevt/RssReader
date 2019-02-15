@@ -64,6 +64,9 @@ extension RssFeedViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        if let item = self.viewModels[safe: indexPath.row] {
+            self.presenter.didTriggerItemSelected(item: item)
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

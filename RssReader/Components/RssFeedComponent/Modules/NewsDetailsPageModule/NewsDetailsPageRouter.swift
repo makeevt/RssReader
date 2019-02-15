@@ -2,11 +2,10 @@
 import Foundation
 import UIKit
 
-protocol RssFeedRouter {
-    func showNewsDetailsPage(item: RssItem)
+protocol NewsDetailsPageRouter {
 }
 
-class RssFeedRouterImpl: RssFeedRouter {
+class NewsDetailsPageRouterImpl: NewsDetailsPageRouter {
     
     //MARK: - Private properties
     
@@ -19,12 +18,6 @@ class RssFeedRouterImpl: RssFeedRouter {
     init(navigationViewController: UINavigationController?, serviceLocator: ServiceLocator) {
         self.navigationController = navigationViewController
         self.serviceLocator = serviceLocator
-    }
-    
-    func showNewsDetailsPage(item: RssItem) {
-        let controller = NewsDetailsPageViewController()
-        controller.configurator = NewsDetailsPageConfiguratorImpl(navigationController: navigationController, serviceLocator: serviceLocator)
-        navigationController?.pushViewController(controller, animated: true)
     }
     
 }

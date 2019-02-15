@@ -7,6 +7,7 @@ protocol RssFeedView: class {
 
 protocol RssFeedPresenter: class {
     func didTriggerViewReadyEvent()
+    func didTriggerItemSelected(item: RssItem)
 }
 
 class RssFeedPresenterImpl: RssFeedPresenter {
@@ -25,5 +26,9 @@ class RssFeedPresenterImpl: RssFeedPresenter {
     func didTriggerViewReadyEvent() {
         let rssItems = self.interactor.obtainRssItems()
         self.view?.configure(viewModels: rssItems)
+    }
+    
+    func didTriggerItemSelected(item: RssItem) {
+        self.router.showNewsDetailsPage(item: item)
     }
 }

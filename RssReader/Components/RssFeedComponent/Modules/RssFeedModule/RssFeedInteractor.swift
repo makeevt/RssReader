@@ -15,7 +15,7 @@ class RssFeedInteractorImpl: RssFeedInteractor {
     
     init(serviceLocator: ServiceLocator) {
         self.serviceLocator = serviceLocator
-        self.parser = XmlParserManager(contentURL: self.url)
+        self.parser = XmlParserManager(contentURL: self.url2)
         self.parser.startParse()
     }
     

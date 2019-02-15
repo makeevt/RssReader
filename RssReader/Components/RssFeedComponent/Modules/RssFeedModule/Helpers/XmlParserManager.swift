@@ -10,6 +10,7 @@ enum XmlElementType: String {
     case pubDate = "pubDate"
 }
 
+//TODO:- Make parsing asynch
 class XmlParserManager: NSObject, XMLParserDelegate {
     
     //MARK:- Private Properties
