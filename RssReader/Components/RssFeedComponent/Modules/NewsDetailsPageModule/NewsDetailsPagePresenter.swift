@@ -2,7 +2,7 @@
 import Foundation
 
 protocol NewsDetailsPageView: class {
-    func configure()
+    func configure(imageURL: String?, title: String?, description: String?)
 }
 
 protocol NewsDetailsPagePresenter: class {
@@ -23,6 +23,6 @@ class NewsDetailsPagePresenterImpl: NewsDetailsPagePresenter {
     }
     
     func didTriggerViewReadyEvent() {
-
+        self.view?.configure(imageURL: self.interactor.newsImageURL, title: self.interactor.newsTitle, description: self.interactor.newsDescription)
     }
 }

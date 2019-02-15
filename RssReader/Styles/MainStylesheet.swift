@@ -28,8 +28,6 @@ struct MainStylesheet: Stylesheet {
             navigationBar.isTranslucent                    = false
             navigationBar.barTintColor                     = UIColor.rssOrange
             navigationBar.backgroundColor                  = UIColor.rssOrange
-            navigationBar.backIndicatorImage               = UIImage(named: "navigationbar.icon.back")
-            navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "navigationbar.icon.back")
         }
         
         //MARK:- Shared Styles

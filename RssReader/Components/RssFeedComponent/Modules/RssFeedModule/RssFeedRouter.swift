@@ -23,7 +23,7 @@ class RssFeedRouterImpl: RssFeedRouter {
     
     func showNewsDetailsPage(item: RssItem) {
         let controller = NewsDetailsPageViewController()
-        controller.configurator = NewsDetailsPageConfiguratorImpl(navigationController: navigationController, serviceLocator: serviceLocator)
+        controller.configurator = NewsDetailsPageConfiguratorImpl(navigationController: navigationController, serviceLocator: serviceLocator, newsItem: item)
         navigationController?.pushViewController(controller, animated: true)
     }
     
