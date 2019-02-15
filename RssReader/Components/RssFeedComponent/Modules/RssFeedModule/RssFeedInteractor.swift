@@ -20,7 +20,7 @@ class RssFeedInteractorImpl: RssFeedInteractor {
     }
     
     func obtainRssItems() -> [RssItem] {
-        return parser.feeds
+        return self.parser.obtainFeeds()
     }
     
 }

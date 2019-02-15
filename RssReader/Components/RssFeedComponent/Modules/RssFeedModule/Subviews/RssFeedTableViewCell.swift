@@ -3,11 +3,18 @@ import UIKit
 
 class RssFeedTableViewCell: UITableViewCell {
     
+    //MARK:- Constants
+    
+    private struct Constants {
+        static let titlePlaceholder = "rssFeed.cell.titlePlaceholder".localized
+        static let datePlaceholder = "rssFeed.cell.datePlaceholder".localized
+    }
+    
     //MARK:- Outlets
 
-    @IBOutlet private weak var previewImageView: UIImageView!
+    @IBOutlet private weak var previewImageView: CircleImageView!
     @IBOutlet private weak var dateLabel: UILabel!
-    @IBOutlet private weak var descriptionLabel: UILabel!
+    @IBOutlet private weak var titleLabel: UILabel!
     
     //MARK:- Public Properties
     
@@ -18,6 +25,16 @@ class RssFeedTableViewCell: UITableViewCell {
     }
     
     //MARK:- Public Methods
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        self.dateLabel.font = UIFont.helveticaNeueLightFont(ofSize: 12)
+        self.dateLabel.textColor = UIColor.gray
+        
+        self.titleLabel.font = UIFont.helveticaNeueMediumFont(ofSize: 16)
+        self.titleLabel.textColor = UIColor.darkText
+    }
     
     override func prepareForReuse() {
         super.prepareForReuse()
@@ -32,15 +49,17 @@ class RssFeedTableViewCell: UITableViewCell {
             self.resetInterface()
             return
         }
-        self.previewImageView.startImageLoading(urlPath: viewModel.img.first ?? "")
-        self.dateLabel.text = viewModel.date
-        self.descriptionLabel.text = viewModel.description
+        self.dateLabel.text = viewModel.date ?? Constants.datePlaceholder
+        self.titleLabel.text = viewModel.title ?? Constants.titlePlaceholder
+        if let url = viewModel.imageURLs.first {
+            self.previewImageView.startImageLoading(urlPath: url)
+        }
     }
     
     private func resetInterface() {
         self.previewImageView.image = nil
         self.dateLabel.text = ""
-        self.descriptionLabel.text = ""
+        self.titleLabel.text = ""
     }
     
     

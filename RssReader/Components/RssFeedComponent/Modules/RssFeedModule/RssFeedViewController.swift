@@ -6,9 +6,9 @@ class RssFeedViewController: UIViewController, RssFeedView {
     //MARK:- Constants
     
     private struct Constants {
-        static var screenTitle = "rssFeed.screenTitle".localized.uppercased()
+        static let screenTitle = "rssFeed.screenTitle".localized.uppercased()
         static let rssFeedCellReuseID = "RssFeedTableViewCellID"
-        static let estimatedRowHeight: CGFloat = 90.0
+        static let estimatedRowHeight: CGFloat = 112.0
     }
     
     //MARK:- Public properties

@@ -1,7 +1,7 @@
 
 import Foundation
 
-enum ElementType: String {
+enum XmlElementType: String {
     case item = "item"
     case enclosure = "enclosure"
     case title = "title"
@@ -17,11 +17,8 @@ class XmlParserManager: NSObject, XMLParserDelegate {
     private let parser: XMLParser?
     private let builder: RssItemBuilder
     
-    private var elementType: ElementType?
-    
-    //MARK:- Public Properties
-    
-    var feeds: [RssItem] = []
+    private var currentElementType: XmlElementType?
+    private var feeds: [RssItem] = []
     
     //MARK:- Init
     
@@ -43,19 +40,23 @@ class XmlParserManager: NSObject, XMLParserDelegate {
         self.parser?.parse()
     }
     
+    func obtainFeeds() -> [RssItem] {
+        return self.feeds
+    }
+    
     //MARK:- XMLParserDelegate
     
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
-        self.elementType = ElementType(rawValue: elementName)
-        guard let type = self.elementType else {
+        self.currentElementType = XmlElementType(rawValue: elementName)
+        guard let type = self.currentElementType else {
             return
         }
         switch type {
         case .item:
-            self.builder.reset()
+            self.builder.newItem()
         case .enclosure:
             if let urlString = attributeDict["url"] {
-                self.builder.imgURL = urlString
+                self.builder.addImageURL(urlString: urlString)
             }
         default:
             return
@@ -63,29 +64,18 @@ class XmlParserManager: NSObject, XMLParserDelegate {
     }
     
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
-        guard let endType = ElementType(rawValue: elementName), endType == .item else {
+        guard let endType = XmlElementType(rawValue: elementName), endType == .item else {
             return
         }
         if let newItem = self.builder.tryToBuild() {
-            feeds.append(newItem)
+            self.feeds.append(newItem)
         }
     }
     
     func parser(_ parser: XMLParser, foundCharacters string: String) {
-        guard let currentElementType = self.elementType else {
+        guard let currentElementType = self.currentElementType else {
             return
         }
-        switch currentElementType {
-        case .title:
-            self.builder.title?.append(string)
-        case .link:
-            self.builder.link?.append(string)
-        case .description:
-            self.builder.description?.append(string)
-        case .pubDate:
-            self.builder.date?.append(string)
-        default:
-            return
-        }
+        self.builder.processValue(string, elementType: currentElementType)
     }
 }
