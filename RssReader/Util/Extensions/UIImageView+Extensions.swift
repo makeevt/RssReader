@@ -55,8 +55,8 @@ extension UIImageView: ImageTarget {
         activity.startAnimating()
         activity.translatesAutoresizingMaskIntoConstraints = false
         
-        activity.addConstraint(NSLayoutConstraint(item: activity, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 20))
-        activity.addConstraint(NSLayoutConstraint(item: activity, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 20))
+        activity.widthAnchor.constraint(equalToConstant: 20.0).isActive = true
+        activity.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
         activity.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         activity.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         
