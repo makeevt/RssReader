@@ -23,7 +23,27 @@ class RssFeedViewController: UIViewController, RssFeedView {
     
     //MARK:- Private properties
     
-    var viewModels: [RssItem] = []
+    private lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshValueChanged(_:)), for: .valueChanged)
+        return refreshControl
+    }()
+    
+    private var loadingItemActivity: UIActivityIndicatorView?
+    private lazy var loadingItem: UIBarButtonItem = {
+        let activity = UIActivityIndicatorView()
+        activity.style = UIActivityIndicatorView.Style.white
+        self.loadingItemActivity = activity
+        return UIBarButtonItem(customView: activity)
+    }()
+    
+    private lazy var reloadButton: UIBarButtonItem = {
+        let image = UIImage(named: "reload.icon")?.withRenderingMode(.alwaysTemplate)
+        return UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(reloadTapped))
+    }()
+    
+    private var viewModels: [RssItem] = []
+    private var isLoading: Bool = false
     
     
     // MARK: - Lifecycle
@@ -31,6 +51,7 @@ class RssFeedViewController: UIViewController, RssFeedView {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "  ", style:.plain, target: nil, action: nil)
+        self.navigationItem.rightBarButtonItem = self.reloadButton
         self.title = Constants.screenTitle
         self.configurator.configure(viewController: self)
         
@@ -46,6 +67,25 @@ class RssFeedViewController: UIViewController, RssFeedView {
         self.tableView.reloadData()
     }
     
+    func configure(isLoading: Bool) {
+        self.navigationItem.rightBarButtonItem = isLoading ? self.loadingItem : self.reloadButton
+        isLoading ? self.loadingItemActivity?.startAnimating() : self.loadingItemActivity?.stopAnimating()
+        if !isLoading && self.refreshControl.isRefreshing {
+            self.refreshControl.endRefreshing()
+        }
+        self.isLoading = isLoading
+    }
+    
+    // MARK: - Actions
+    
+    @objc private func reloadTapped() {
+        self.startReloading()
+    }
+    
+    @objc func refreshValueChanged(_ sender: AnyObject) {
+        self.startReloading()
+    }
+    
     // MARK: - Private methods
     
     private func configureTableView() {
@@ -55,6 +95,14 @@ class RssFeedViewController: UIViewController, RssFeedView {
         self.tableView.dataSource = self
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = Constants.estimatedRowHeight
+        self.tableView.addSubview(self.refreshControl)
+    }
+    
+    private func startReloading() {
+        if self.isLoading {
+            return
+        }
+        self.presenter.didTriggerReloadStarted()
     }
     
 }

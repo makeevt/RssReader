@@ -3,11 +3,13 @@ import Foundation
 
 protocol RssFeedView: class {
     func configure(viewModels: [RssItem])
+    func configure(isLoading: Bool)
 }
 
 protocol RssFeedPresenter: class {
     func didTriggerViewReadyEvent()
     func didTriggerItemSelected(item: RssItem)
+    func didTriggerReloadStarted()
 }
 
 class RssFeedPresenterImpl: RssFeedPresenter {
@@ -30,5 +32,13 @@ class RssFeedPresenterImpl: RssFeedPresenter {
     
     func didTriggerItemSelected(item: RssItem) {
         self.router.showNewsDetailsPage(item: item)
+    }
+    
+    func didTriggerReloadStarted() {
+        self.view?.configure(isLoading: true)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.2) { [weak self] in
+            guard let `self` = self else { return }
+            self.view?.configure(isLoading: false)
+        }
     }
 }
