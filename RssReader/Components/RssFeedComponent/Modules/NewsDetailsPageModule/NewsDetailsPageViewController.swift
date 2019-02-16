@@ -31,11 +31,8 @@ class NewsDetailsPageViewController: UIViewController,  NewsDetailsPageView {
         
         self.configurator.configure(viewController: self)
         
-        self.titleLabel.font = UIFont.helveticaNeueRegularFont(ofSize: 20)
+        self.titleLabel.font = UIFont.helveticaNeueBoldFont(ofSize: 20)
         self.titleLabel.textColor = UIColor.darkText
-        
-        self.descriptionLabel.font = UIFont.helveticaNeueMediumFont(ofSize: 16)
-        self.descriptionLabel.textColor = UIColor.gray
         
         self.presenter.didTriggerViewReadyEvent()
     }
@@ -47,7 +44,7 @@ class NewsDetailsPageViewController: UIViewController,  NewsDetailsPageView {
             self.imageView.startImageLoading(urlPath: imageURL)
         }
         self.titleLabel.text = title
-        self.descriptionLabel.text = description
+        self.descriptionLabel.attributedText = description?.htmlAttributed(using: UIFont.helveticaNeueMediumFont(ofSize: 12), color: UIColor.rssTextGray)
     }
     
     // MARK: - Private methods

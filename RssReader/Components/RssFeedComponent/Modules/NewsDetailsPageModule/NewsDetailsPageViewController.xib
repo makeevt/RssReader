@@ -27,22 +27,22 @@
                     <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="meB-P0-XGn">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="304"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="288"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rMp-3T-uXC" customClass="LoadableImageView" customModule="WheelyTestApp" customModuleProvider="target">
-                                    <rect key="frame" x="16" y="16" width="343" height="200"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                     <constraints>
                                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="200" id="ynZ-pw-bFh"/>
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="0" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jO2-h2-eRy">
-                                    <rect key="frame" x="181.5" y="232" width="12.5" height="24"/>
+                                    <rect key="frame" x="181.5" y="216" width="12.5" height="24"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="0" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GUX-MR-gO3">
-                                    <rect key="frame" x="16" y="264" width="343" height="24"/>
+                                    <rect key="frame" x="16" y="248" width="343" height="24"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -57,9 +57,9 @@
                                 <constraint firstAttribute="trailing" secondItem="GUX-MR-gO3" secondAttribute="trailing" constant="16" id="Uda-4r-LJZ"/>
                                 <constraint firstItem="jO2-h2-eRy" firstAttribute="top" secondItem="rMp-3T-uXC" secondAttribute="bottom" constant="16" id="coF-fU-aQg"/>
                                 <constraint firstItem="GUX-MR-gO3" firstAttribute="top" secondItem="jO2-h2-eRy" secondAttribute="bottom" constant="8" id="es8-gE-ss4"/>
-                                <constraint firstItem="rMp-3T-uXC" firstAttribute="top" secondItem="meB-P0-XGn" secondAttribute="top" constant="16" id="gdT-Kf-LXL"/>
-                                <constraint firstItem="rMp-3T-uXC" firstAttribute="leading" secondItem="meB-P0-XGn" secondAttribute="leading" constant="16" id="kPW-Q2-0SK"/>
-                                <constraint firstAttribute="trailing" secondItem="rMp-3T-uXC" secondAttribute="trailing" constant="16" id="kie-QT-kXy"/>
+                                <constraint firstItem="rMp-3T-uXC" firstAttribute="top" secondItem="meB-P0-XGn" secondAttribute="top" id="gdT-Kf-LXL"/>
+                                <constraint firstItem="rMp-3T-uXC" firstAttribute="leading" secondItem="meB-P0-XGn" secondAttribute="leading" id="kPW-Q2-0SK"/>
+                                <constraint firstAttribute="trailing" secondItem="rMp-3T-uXC" secondAttribute="trailing" id="kie-QT-kXy"/>
                                 <constraint firstItem="GUX-MR-gO3" firstAttribute="leading" secondItem="meB-P0-XGn" secondAttribute="leading" constant="16" id="tfK-x4-swW"/>
                             </constraints>
                         </view>
