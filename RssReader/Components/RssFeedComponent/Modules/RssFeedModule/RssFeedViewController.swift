@@ -7,6 +7,8 @@ class RssFeedViewController: UIViewController, RssFeedView {
     
     private struct Constants {
         static let screenTitle = "rssFeed.screenTitle".localized.uppercased()
+        static let updatingFailedAlertTitle = "rssFeed.updatingFailedAlert.title".localized
+        static let updatingFailedAlertMessage = "rssFeed.updatingFailedAlert.message".localized
         static let rssFeedCellReuseID = "RssFeedTableViewCellID"
         static let estimatedRowHeight: CGFloat = 112.0
     }
@@ -74,6 +76,10 @@ class RssFeedViewController: UIViewController, RssFeedView {
             self.refreshControl.endRefreshing()
         }
         self.isLoading = isLoading
+    }
+    
+    func showUpdatingFailedAlert() {
+        self.showAlert(title: Constants.updatingFailedAlertTitle, message: Constants.updatingFailedAlertMessage)
     }
     
     // MARK: - Actions

@@ -4,6 +4,7 @@ import Foundation
 protocol RssFeedView: class {
     func configure(viewModels: [RssItem])
     func configure(isLoading: Bool)
+    func showUpdatingFailedAlert()
 }
 
 protocol RssFeedPresenter: class {
@@ -39,6 +40,7 @@ class RssFeedPresenterImpl: RssFeedPresenter {
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.2) { [weak self] in
             guard let `self` = self else { return }
             self.view?.configure(isLoading: false)
+            self.view?.showUpdatingFailedAlert()
         }
     }
 }

@@ -21,6 +21,7 @@
 		4C8F6BB32217746D004CCCD6 /* NewsDetailsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8F6BB12217746D004CCCD6 /* NewsDetailsPageViewController.swift */; };
 		4C8F6BB42217746D004CCCD6 /* NewsDetailsPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C8F6BB22217746D004CCCD6 /* NewsDetailsPageViewController.xib */; };
 		4C8F6BB622177E92004CCCD6 /* String+HTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8F6BB522177E92004CCCD6 /* String+HTML.swift */; };
+		4C8F6BB822178E0B004CCCD6 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8F6BB722178E0B004CCCD6 /* UIViewController+Extensions.swift */; };
 		4CBEDEBD220E43FD004CB288 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBEDEBC220E43FD004CB288 /* UIColor+Extensions.swift */; };
 		4CBEDEBF220E4637004CB288 /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBEDEBE220E4637004CB288 /* ServiceLocator.swift */; };
 		4CBEDEC2220E46BB004CB288 /* RSSModel+Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBEDEC1220E46BB004CB288 /* RSSModel+Loading.swift */; };
@@ -72,6 +73,7 @@
 		4C8F6BB12217746D004CCCD6 /* NewsDetailsPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailsPageViewController.swift; sourceTree = "<group>"; };
 		4C8F6BB22217746D004CCCD6 /* NewsDetailsPageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsDetailsPageViewController.xib; sourceTree = "<group>"; };
 		4C8F6BB522177E92004CCCD6 /* String+HTML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+HTML.swift"; sourceTree = "<group>"; };
+		4C8F6BB722178E0B004CCCD6 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		4CBEDEBC220E43FD004CB288 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		4CBEDEBE220E4637004CB288 /* ServiceLocator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
 		4CBEDEC1220E46BB004CB288 /* RSSModel+Loading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RSSModel+Loading.swift"; sourceTree = "<group>"; };
@@ -350,6 +352,7 @@
 				4CFDAE56220A2FF500D5442A /* Thread+Extensions.swift */,
 				4CBEDEBC220E43FD004CB288 /* UIColor+Extensions.swift */,
 				4CFDAE45220A2DC400D5442A /* UIFont+Extensions.swift */,
+				4C8F6BB722178E0B004CCCD6 /* UIViewController+Extensions.swift */,
 				4CBEDECF220E4750004CB288 /* URL+Extensions.swift */,
 			);
 			path = Extensions;
@@ -542,6 +545,7 @@
 				4CFDAE51220A2FB400D5442A /* ConfigureAppPresenter.swift in Sources */,
 				4C8F6BAE22176EBA004CCCD6 /* NewsDetailsPagePresenter.swift in Sources */,
 				4C6BC541221229EF005D968E /* RssItem.swift in Sources */,
+				4C8F6BB822178E0B004CCCD6 /* UIViewController+Extensions.swift in Sources */,
 				4C8F6BA322176491004CCCD6 /* ImageTarget.swift in Sources */,
 				4CFDAE52220A2FB400D5442A /* ConfigureAppRouter.swift in Sources */,
 				4CBEDEE5220E4C9F004CB288 /* RssFeedRouter.swift in Sources */,

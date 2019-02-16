@@ -6,8 +6,13 @@
   Copyright © 2019 makeev. All rights reserved.
 */
 
+"alert.ok" = "Ok";
 
-"rssFeed.screenTitle"               = "RSS FEED";
+
+"rssFeed.screenTitle"                             = "RSS FEED";
+
+"rssFeed.updatingFailedAlert.title"               = "Updating failed";
+"rssFeed.updatingFailedAlert.message"             = "Something went wrong. Please, try again.";
 
 "rssFeed.cell.titlePlaceholder"     = "Unknown title";
 "rssFeed.cell.datePlaceholder"      = "Unknown date";
