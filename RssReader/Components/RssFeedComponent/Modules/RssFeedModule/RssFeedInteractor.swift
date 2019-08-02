@@ -18,6 +18,7 @@ class RssFeedInteractorImpl: RssFeedInteractor, XmlParserManagerDelegate {
     
     private var url: URL = URL(string: "http://feeds.skynews.com/feeds/rss/technology.xml")!
     private var url2: URL = URL(string: "http://www.sports.ru/sports_docs.xml")!
+    private var url3: URL = URL(string: "https://habr.com/ru/rss/best/daily/?fl=ru")!
     
     init(serviceLocator: ServiceLocator) {
         self.serviceLocator = serviceLocator

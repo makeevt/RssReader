@@ -37,11 +37,7 @@ class RssFeedPresenterImpl: RssFeedPresenter {
     
     func didTriggerReloadStarted() {
         self.view?.configure(isLoading: true)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.2) { [weak self] in
-            guard let `self` = self else { return }
-            self.view?.configure(isLoading: false)
-            self.view?.showUpdatingFailedAlert()
-        }
+        self.interactor.loadRssItems()
     }
 }
 
