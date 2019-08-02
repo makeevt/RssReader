@@ -19,3 +19,5 @@
 "rssFeed.cell.datePlaceholder"      = "Unknown date";
 
 "newsDetails.screenTitle"               = "NEWS";
+
+"rssModelsList.screenTitle"             = "RSS SOURCES";
