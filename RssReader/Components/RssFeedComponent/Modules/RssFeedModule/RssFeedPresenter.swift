@@ -46,4 +46,9 @@ extension RssFeedPresenterImpl: RssFeedInteractorOutput {
         self.view?.configure(isLoading: false)
         self.view?.configure(viewModels: newItems)
     }
+    
+    func rssLoadingFailedWithError(error: Error) {
+        self.view?.configure(isLoading: false)
+        self.view?.showUpdatingFailedAlert()
+    }
 }

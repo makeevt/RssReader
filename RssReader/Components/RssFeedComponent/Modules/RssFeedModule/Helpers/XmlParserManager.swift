@@ -1,5 +1,6 @@
 
 import Foundation
+import Alamofire
 
 enum XmlElementType: String {
     case item = "item"
@@ -12,6 +13,7 @@ enum XmlElementType: String {
 
 protocol XmlParserManagerDelegate: class {
     func xmlParserManagerDidEndParsing(_ manager: XmlParserManager, newItems: [RssItem])
+    func xmlParserManagerDidHandleError(_ manager: XmlParserManager, error: Error)
 }
 
 class XmlParserManager: NSObject, XMLParserDelegate {
@@ -40,23 +42,34 @@ class XmlParserManager: NSObject, XMLParserDelegate {
     
     func startAsyncParse() {
         self.feeds.removeAll()
+        AF.request(self.contentURL).response(completionHandler: { [weak self] data in
+            guard let self = self else { return }
+            if let error = data.error {
+                self.delegate?.xmlParserManagerDidHandleError(self, error: error)
+            } else if let data = data.data {
+                self.parseResponse(data: data)
+            }
+        })
+    }
+    
+    func obtainFeeds() -> [RssItem] {
+        return self.feeds
+    }
+    
+    //MARK:- Private methods
+    
+    private func parseResponse(data: Data) {
         DispatchQueue.global().async { [weak self] in
             guard let self = self else {
                 return
             }
-            guard let parser = XMLParser(contentsOf: self.contentURL) else {
-                return
-            }
+            let parser = XMLParser(data: data)
             parser.delegate = self
             parser.shouldProcessNamespaces = false
             parser.shouldReportNamespacePrefixes = false
             parser.shouldResolveExternalEntities = false
             parser.parse()
         }
-    }
-    
-    func obtainFeeds() -> [RssItem] {
-        return self.feeds
     }
     
     //MARK:- XMLParserDelegate
@@ -96,5 +109,9 @@ class XmlParserManager: NSObject, XMLParserDelegate {
     
     func parserDidEndDocument(_ parser: XMLParser) {
         self.delegate?.xmlParserManagerDidEndParsing(self, newItems: self.feeds)
+    }
+    
+    func parser(_ parser: XMLParser, parseErrorOccurred parseError: Error) {
+        self.delegate?.xmlParserManagerDidHandleError(self, error: parseError)
     }
 }

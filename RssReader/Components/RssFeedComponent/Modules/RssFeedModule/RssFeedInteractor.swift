@@ -3,6 +3,7 @@ import Foundation
 
 protocol RssFeedInteractorOutput: class {
     func rssItemsDidChange(newItems: [RssItem])
+    func rssLoadingFailedWithError(error: Error)
 }
 
 protocol RssFeedInteractor {
@@ -35,6 +36,12 @@ class RssFeedInteractorImpl: RssFeedInteractor, XmlParserManagerDelegate {
     func xmlParserManagerDidEndParsing(_ manager: XmlParserManager, newItems: [RssItem]) {
         Thread.do_onMainThread {
             self.output?.rssItemsDidChange(newItems: newItems)
+        }
+    }
+    
+    func xmlParserManagerDidHandleError(_ manager: XmlParserManager, error: Error) {
+        Thread.do_onMainThread {
+            self.output?.rssLoadingFailedWithError(error: error)
         }
     }
     
