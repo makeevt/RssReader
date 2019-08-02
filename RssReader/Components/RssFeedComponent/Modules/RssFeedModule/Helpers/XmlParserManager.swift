@@ -14,7 +14,6 @@ protocol XmlParserManagerDelegate: class {
     func xmlParserManagerDidEndParsing(_ manager: XmlParserManager, newItems: [RssItem])
 }
 
-//TODO:- Make parsing asynch
 class XmlParserManager: NSObject, XMLParserDelegate {
     
     //MARK:- Public Properties
