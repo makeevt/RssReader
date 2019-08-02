@@ -41,8 +41,12 @@ class RssItemBuilder {
     }
     
     func tryToBuild() -> RssItem? {
-        let title = self.title?.trimmingCharacters(in: .whitespacesAndNewlines)
-        let link = self.link?.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard let title = self.title?.trimmingCharacters(in: .whitespacesAndNewlines) else {
+            return nil
+        }
+        guard let link = self.link?.trimmingCharacters(in: .whitespacesAndNewlines) else {
+            return nil
+        }
         let description = self.description?.trimmingCharacters(in: .whitespacesAndNewlines)
         let date = self.date?.trimmingCharacters(in: .whitespacesAndNewlines)
         return RssItem(title: title, link: link, imageURLs: self.imgURLs, description: description, date: date)

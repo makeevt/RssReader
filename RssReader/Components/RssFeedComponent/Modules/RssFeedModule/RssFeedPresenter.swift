@@ -27,8 +27,8 @@ class RssFeedPresenterImpl: RssFeedPresenter {
     }
     
     func didTriggerViewReadyEvent() {
-        let rssItems = self.interactor.obtainRssItems()
-        self.view?.configure(viewModels: rssItems)
+        self.view?.configure(isLoading: true)
+        self.interactor.loadRssItems()
     }
     
     func didTriggerItemSelected(item: RssItem) {
@@ -42,5 +42,12 @@ class RssFeedPresenterImpl: RssFeedPresenter {
             self.view?.configure(isLoading: false)
             self.view?.showUpdatingFailedAlert()
         }
+    }
+}
+
+extension RssFeedPresenterImpl: RssFeedInteractorOutput {
+    func rssItemsDidChange(newItems: [RssItem]) {
+        self.view?.configure(isLoading: false)
+        self.view?.configure(viewModels: newItems)
     }
 }

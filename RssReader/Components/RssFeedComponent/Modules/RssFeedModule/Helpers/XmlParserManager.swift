@@ -10,12 +10,20 @@ enum XmlElementType: String {
     case pubDate = "pubDate"
 }
 
+protocol XmlParserManagerDelegate: class {
+    func xmlParserManagerDidEndParsing(_ manager: XmlParserManager, newItems: [RssItem])
+}
+
 //TODO:- Make parsing asynch
 class XmlParserManager: NSObject, XMLParserDelegate {
     
+    //MARK:- Public Properties
+    
+    weak var delegate: XmlParserManagerDelegate?
+    
     //MARK:- Private Properties
     
-    private let parser: XMLParser?
+    private let contentURL: URL
     private let builder: RssItemBuilder
     
     private var currentElementType: XmlElementType?
@@ -24,21 +32,28 @@ class XmlParserManager: NSObject, XMLParserDelegate {
     //MARK:- Init
     
     init(contentURL: URL) {
-        self.parser = XMLParser(contentsOf: contentURL)
+        self.contentURL = contentURL
         self.builder = RssItemBuilder()
         super.init()
-        
-        self.parser?.delegate = self
-        self.parser?.shouldProcessNamespaces = false
-        self.parser?.shouldReportNamespacePrefixes = false
-        self.parser?.shouldResolveExternalEntities = false
     }
     
     //MARK:- Public methods
     
     func startParse() {
         self.feeds.removeAll()
-        self.parser?.parse()
+        DispatchQueue.global().async { [weak self] in
+            guard let self = self else {
+                return
+            }
+            guard let parser = XMLParser(contentsOf: self.contentURL) else {
+                return
+            }
+            parser.delegate = self
+            parser.shouldProcessNamespaces = false
+            parser.shouldReportNamespacePrefixes = false
+            parser.shouldResolveExternalEntities = false
+            parser.parse()
+        }
     }
     
     func obtainFeeds() -> [RssItem] {
@@ -78,5 +93,9 @@ class XmlParserManager: NSObject, XMLParserDelegate {
             return
         }
         self.builder.processValue(string, elementType: currentElementType)
+    }
+    
+    func parserDidEndDocument(_ parser: XMLParser) {
+        self.delegate?.xmlParserManagerDidEndParsing(self, newItems: self.feeds)
     }
 }

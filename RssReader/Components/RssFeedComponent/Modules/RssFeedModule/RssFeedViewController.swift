@@ -9,6 +9,7 @@ class RssFeedViewController: UIViewController, RssFeedView {
         static let screenTitle = "rssFeed.screenTitle".localized.uppercased()
         static let updatingFailedAlertTitle = "rssFeed.updatingFailedAlert.title".localized
         static let updatingFailedAlertMessage = "rssFeed.updatingFailedAlert.message".localized
+        static let placeholderTitle = "rssFeed.placeholderTitle".localized
         static let rssFeedCellReuseID = "RssFeedTableViewCellID"
         static let estimatedRowHeight: CGFloat = 112.0
     }
@@ -21,6 +22,9 @@ class RssFeedViewController: UIViewController, RssFeedView {
     //MARK:- Outlets
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var placeholderIcon: UIImageView!
+    @IBOutlet weak var placeholderView: UIView!
+    @IBOutlet weak var placeholderLabel: UILabel!
     
     
     //MARK:- Private properties
@@ -58,6 +62,7 @@ class RssFeedViewController: UIViewController, RssFeedView {
         self.configurator.configure(viewController: self)
         
         self.configureTableView()
+        self.configurePlaceholder()
         
         self.presenter.didTriggerViewReadyEvent()
     }
@@ -66,6 +71,8 @@ class RssFeedViewController: UIViewController, RssFeedView {
     
     func configure(viewModels: [RssItem]) {
         self.viewModels = viewModels
+        self.placeholderView.isHidden = !viewModels.isEmpty
+        self.tableView.isHidden = viewModels.isEmpty
         self.tableView.reloadData()
     }
     
@@ -101,7 +108,14 @@ class RssFeedViewController: UIViewController, RssFeedView {
         self.tableView.dataSource = self
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = Constants.estimatedRowHeight
+        self.tableView.isHidden = true
         self.tableView.addSubview(self.refreshControl)
+    }
+    
+    private func configurePlaceholder() {
+        self.placeholderLabel.font = UIFont.helveticaNeueLightFont(ofSize: 18)
+        self.placeholderLabel.textColor = UIColor.gray
+        self.placeholderLabel.attributedText = Constants.placeholderTitle.attributedStringWithKern(value: 1.0)
     }
     
     private func startReloading() {

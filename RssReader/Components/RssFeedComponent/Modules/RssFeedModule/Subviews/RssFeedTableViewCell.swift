@@ -6,7 +6,6 @@ class RssFeedTableViewCell: UITableViewCell {
     //MARK:- Constants
     
     private struct Constants {
-        static let titlePlaceholder = "rssFeed.cell.titlePlaceholder".localized
         static let datePlaceholder = "rssFeed.cell.datePlaceholder".localized
     }
     
@@ -49,8 +48,8 @@ class RssFeedTableViewCell: UITableViewCell {
             self.resetInterface()
             return
         }
+        self.titleLabel.text = viewModel.title
         self.dateLabel.text = viewModel.date ?? Constants.datePlaceholder
-        self.titleLabel.text = viewModel.title ?? Constants.titlePlaceholder
         if let url = viewModel.imageURLs.first {
             self.previewImageView.startImageLoading(urlPath: url)
         }

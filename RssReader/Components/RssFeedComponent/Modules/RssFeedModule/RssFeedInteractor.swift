@@ -1,11 +1,17 @@
 
 import Foundation
 
-protocol RssFeedInteractor {
-    func obtainRssItems() -> [RssItem]
+protocol RssFeedInteractorOutput: class {
+    func rssItemsDidChange(newItems: [RssItem])
 }
 
-class RssFeedInteractorImpl: RssFeedInteractor {
+protocol RssFeedInteractor {
+    func loadRssItems()
+}
+
+class RssFeedInteractorImpl: RssFeedInteractor, XmlParserManagerDelegate {
+    
+    weak var output: RssFeedInteractorOutput?
     
     private let serviceLocator: ServiceLocator
     private let parser: XmlParserManager
@@ -16,11 +22,19 @@ class RssFeedInteractorImpl: RssFeedInteractor {
     init(serviceLocator: ServiceLocator) {
         self.serviceLocator = serviceLocator
         self.parser = XmlParserManager(contentURL: self.url2)
+        self.parser.delegate = self
+    }
+    
+    func loadRssItems() {
         self.parser.startParse()
     }
     
-    func obtainRssItems() -> [RssItem] {
-        return self.parser.obtainFeeds()
+    //MARK:- XmlParserManagerDelegate
+    
+    func xmlParserManagerDidEndParsing(_ manager: XmlParserManager, newItems: [RssItem]) {
+        Thread.do_onMainThread {
+            self.output?.rssItemsDidChange(newItems: newItems)
+        }
     }
     
 }

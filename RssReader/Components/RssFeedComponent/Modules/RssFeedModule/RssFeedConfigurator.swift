@@ -20,5 +20,6 @@ class RssFeedConfiguratorImpl: RssFeedConfigurator {
         let interactor = RssFeedInteractorImpl(serviceLocator: serviceLocator)
         let presenter = RssFeedPresenterImpl(view: viewController, router: router, interactor: interactor)
         viewController.presenter = presenter
+        interactor.output = presenter
     }
 }

@@ -10,6 +10,7 @@
 
 
 "rssFeed.screenTitle"                             = "RSS FEED";
+"rssFeed.placeholderTitle"                        = "RSS feed is empty";
 
 "rssFeed.updatingFailedAlert.title"               = "Updating failed";
 "rssFeed.updatingFailedAlert.message"             = "Something went wrong. Please, try again.";
