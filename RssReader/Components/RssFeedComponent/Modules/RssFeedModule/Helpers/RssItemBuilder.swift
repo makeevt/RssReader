@@ -48,8 +48,15 @@ class RssItemBuilder {
             return nil
         }
         let description = self.description?.trimmingCharacters(in: .whitespacesAndNewlines)
-        let date = self.date?.trimmingCharacters(in: .whitespacesAndNewlines)
+        let date = self.buildDate()
         return RssItem(title: title, link: link, imageURLs: self.imgURLs, description: description, date: date)
+    }
+    
+    private func buildDate() -> Date? {
+        guard let trimmedDate = self.date?.trimmingCharacters(in: .whitespacesAndNewlines) else {
+            return nil
+        }
+        return DateFormatterProvider.shared.formatterFor(type: .rssInputFormat, timeOffset: .local).date(from: trimmedDate)
     }
     
 }

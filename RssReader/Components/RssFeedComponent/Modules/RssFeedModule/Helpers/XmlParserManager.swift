@@ -38,7 +38,7 @@ class XmlParserManager: NSObject, XMLParserDelegate {
     
     //MARK:- Public methods
     
-    func startParse() {
+    func startAsyncParse() {
         self.feeds.removeAll()
         DispatchQueue.global().async { [weak self] in
             guard let self = self else {

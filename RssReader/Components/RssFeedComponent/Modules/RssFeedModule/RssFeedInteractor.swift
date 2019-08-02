@@ -26,7 +26,7 @@ class RssFeedInteractorImpl: RssFeedInteractor, XmlParserManagerDelegate {
     }
     
     func loadRssItems() {
-        self.parser.startParse()
+        self.parser.startAsyncParse()
     }
     
     //MARK:- XmlParserManagerDelegate

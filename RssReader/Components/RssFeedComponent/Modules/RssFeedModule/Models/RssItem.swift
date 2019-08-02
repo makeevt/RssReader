@@ -7,9 +7,9 @@ class RssItem {
     let link: String
     let imageURLs: [String]
     let description: String?
-    let date: String?
+    let date: Date?
     
-    init(title: String, link: String, imageURLs: [String], description: String?, date: String?) {
+    init(title: String, link: String, imageURLs: [String], description: String?, date: Date?) {
         self.title = title
         self.link = link
         self.imageURLs = imageURLs

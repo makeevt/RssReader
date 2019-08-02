@@ -49,7 +49,11 @@ class RssFeedTableViewCell: UITableViewCell {
             return
         }
         self.titleLabel.text = viewModel.title
-        self.dateLabel.text = viewModel.date ?? Constants.datePlaceholder
+        if let date = viewModel.date {
+            self.dateLabel.text = DateFormatterProvider.shared.formatterFor(type: .feedFormat, timeOffset: .local).string(from: date)
+        } else {
+            self.dateLabel.text = Constants.datePlaceholder
+        }
         if let url = viewModel.imageURLs.first {
             self.previewImageView.startImageLoading(urlPath: url)
         }

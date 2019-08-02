@@ -55,6 +55,7 @@
 		4CFDAE55220A2FB400D5442A /* ConfigureAppViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CFDAE4F220A2FB400D5442A /* ConfigureAppViewController.xib */; };
 		4CFDAE57220A2FF500D5442A /* Thread+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFDAE56220A2FF500D5442A /* Thread+Extensions.swift */; };
 		4CFDAE61220A380B00D5442A /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFDAE60220A380B00D5442A /* String+Extensions.swift */; };
+		633C7A6022F47221000D2C47 /* DateFormatterProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633C7A5F22F47221000D2C47 /* DateFormatterProvider.swift */; };
 		7DCFD9E96181A289F3A582AE /* Pods_RssReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0D9447F86AB4F6FF2872EC8 /* Pods_RssReader.framework */; };
 /* End PBXBuildFile section */
 
@@ -109,6 +110,7 @@
 		4CFDAE4F220A2FB400D5442A /* ConfigureAppViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConfigureAppViewController.xib; sourceTree = "<group>"; };
 		4CFDAE56220A2FF500D5442A /* Thread+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Thread+Extensions.swift"; sourceTree = "<group>"; };
 		4CFDAE60220A380B00D5442A /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		633C7A5F22F47221000D2C47 /* DateFormatterProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterProvider.swift; sourceTree = "<group>"; };
 		90C5D0AFA68E66CB367A2059 /* Pods-RssReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RssReader.release.xcconfig"; path = "Pods/Target Support Files/Pods-RssReader/Pods-RssReader.release.xcconfig"; sourceTree = "<group>"; };
 		EB81ED7B141D1736B7179BF2 /* Pods-RssReader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RssReader.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RssReader/Pods-RssReader.debug.xcconfig"; sourceTree = "<group>"; };
 		F0D9447F86AB4F6FF2872EC8 /* Pods_RssReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RssReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -214,6 +216,7 @@
 			children = (
 				4CBEDECD220E471D004CB288 /* Synchronized.swift */,
 				4CBEDED3220E4BAF004CB288 /* ViewDispatcher.swift */,
+				633C7A5F22F47221000D2C47 /* DateFormatterProvider.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -524,6 +527,7 @@
 				4CBEDECE220E471D004CB288 /* Synchronized.swift in Sources */,
 				4CFDAE61220A380B00D5442A /* String+Extensions.swift in Sources */,
 				4CBEDECB220E46DA004CB288 /* RSSPersistentStack.swift in Sources */,
+				633C7A6022F47221000D2C47 /* DateFormatterProvider.swift in Sources */,
 				4CBEDECA220E46DA004CB288 /* NSPersistentStoreCoordinator+SetupHelpers.swift in Sources */,
 				4CFDAE27220A1F3300D5442A /* RssReader.xcdatamodeld in Sources */,
 				4C8F6BB622177E92004CCCD6 /* String+HTML.swift in Sources */,
