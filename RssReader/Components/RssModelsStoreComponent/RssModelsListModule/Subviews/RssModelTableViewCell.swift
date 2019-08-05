@@ -62,12 +62,20 @@ class RssModelTableViewCell: UITableViewCell {
         if let url = viewModel.imageUrl {
             self.previewImageView.startImageLoading(urlPath: url)
         }
-        self.numberOfUnreadLabel.text = "16"
+        if let numberOfUnread = viewModel.numberOfUnread {
+            self.numberOfUnreadContainerView.isHidden = false
+            self.numberOfUnreadLabel.text = "\(numberOfUnread)"
+        } else {
+            self.numberOfUnreadContainerView.isHidden = true
+            self.numberOfUnreadLabel.text = ""
+        }
     }
     
     private func resetInterface() {
         self.previewImageView.image = nil
         self.nameLabel.text = ""
+        self.numberOfUnreadContainerView.isHidden = true
+        self.numberOfUnreadLabel.text = ""
     }
     
 }
