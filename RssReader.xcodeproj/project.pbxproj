@@ -64,6 +64,7 @@
 		633C7A6E22F49C34000D2C47 /* RssModelsListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633C7A6D22F49C34000D2C47 /* RssModelsListRouter.swift */; };
 		633C7A7322F49FF4000D2C47 /* RssModelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633C7A7122F49FF4000D2C47 /* RssModelTableViewCell.swift */; };
 		633C7A7422F49FF4000D2C47 /* RssModelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 633C7A7222F49FF4000D2C47 /* RssModelTableViewCell.xib */; };
+		63B2B03122F85E1C00E98D54 /* RssSourceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B2B03022F85E1C00E98D54 /* RssSourceViewModel.swift */; };
 		7DCFD9E96181A289F3A582AE /* Pods_RssReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0D9447F86AB4F6FF2872EC8 /* Pods_RssReader.framework */; };
 /* End PBXBuildFile section */
 
@@ -127,6 +128,7 @@
 		633C7A6D22F49C34000D2C47 /* RssModelsListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssModelsListRouter.swift; sourceTree = "<group>"; };
 		633C7A7122F49FF4000D2C47 /* RssModelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssModelTableViewCell.swift; sourceTree = "<group>"; };
 		633C7A7222F49FF4000D2C47 /* RssModelTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RssModelTableViewCell.xib; sourceTree = "<group>"; };
+		63B2B03022F85E1C00E98D54 /* RssSourceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssSourceViewModel.swift; sourceTree = "<group>"; };
 		90C5D0AFA68E66CB367A2059 /* Pods-RssReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RssReader.release.xcconfig"; path = "Pods/Target Support Files/Pods-RssReader/Pods-RssReader.release.xcconfig"; sourceTree = "<group>"; };
 		EB81ED7B141D1736B7179BF2 /* Pods-RssReader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RssReader.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RssReader/Pods-RssReader.debug.xcconfig"; sourceTree = "<group>"; };
 		F0D9447F86AB4F6FF2872EC8 /* Pods_RssReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RssReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -416,6 +418,7 @@
 		633C7A6222F49BD9000D2C47 /* RssModelsListModule */ = {
 			isa = PBXGroup;
 			children = (
+				63B2B02F22F85E0900E98D54 /* ViewModels */,
 				633C7A7022F49FD0000D2C47 /* Subviews */,
 				633C7A6922F49C22000D2C47 /* RssModelsListConfigurator.swift */,
 				633C7A6322F49C10000D2C47 /* RssModelsListViewController.swift */,
@@ -434,6 +437,14 @@
 				633C7A7222F49FF4000D2C47 /* RssModelTableViewCell.xib */,
 			);
 			path = Subviews;
+			sourceTree = "<group>";
+		};
+		63B2B02F22F85E0900E98D54 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				63B2B03022F85E1C00E98D54 /* RssSourceViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		9FB84621E4D5779361734B63 /* Frameworks */ = {
@@ -585,6 +596,7 @@
 				633C7A6C22F49C2A000D2C47 /* RssModelsListPresenter.swift in Sources */,
 				4CFDAE57220A2FF500D5442A /* Thread+Extensions.swift in Sources */,
 				4C8F6BA822176EA5004CCCD6 /* NewsDetailsPageInteractor.swift in Sources */,
+				63B2B03122F85E1C00E98D54 /* RssSourceViewModel.swift in Sources */,
 				4CBEDEBF220E4637004CB288 /* ServiceLocator.swift in Sources */,
 				4CBEDEE1220E4C90004CB288 /* RssFeedPresenter.swift in Sources */,
 				4CFDAE50220A2FB400D5442A /* ConfigureAppConfigurator.swift in Sources */,

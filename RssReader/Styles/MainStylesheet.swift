@@ -9,9 +9,17 @@ enum Styles {
     enum UINavigationBar: String, StringConvertible {
         case `default`
     }
+    
+    enum RSSButton: String, StringConvertible {
+        case primary
+    }
 }
 
 struct MainStylesheet: Stylesheet {
+    
+    private struct Constants {
+        static let cornerRadius = 8.0
+    }
     
     func define() {
         
@@ -28,6 +36,14 @@ struct MainStylesheet: Stylesheet {
             navigationBar.isTranslucent                    = false
             navigationBar.barTintColor                     = UIColor.rssOrange
             navigationBar.backgroundColor                  = UIColor.rssOrange
+        }
+        
+        register(Styles.RSSButton.primary) { (button: UIButton) in
+            button.clipsToBounds = true
+            button.layer.cornerRadius = CGFloat(Constants.cornerRadius)
+            button.backgroundColor = UIColor.rssOrange
+            button.setTitleColor(UIColor.white, for: .normal)
+            button.titleLabel?.font = UIFont.helveticaNeueRegularFont(ofSize: 16)
         }
         
         //MARK:- Shared Styles

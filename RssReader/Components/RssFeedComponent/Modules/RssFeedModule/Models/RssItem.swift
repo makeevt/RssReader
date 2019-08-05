@@ -1,7 +1,7 @@
 
 import Foundation
 
-class RssItem {
+struct RssItem {
     
     let title: String
     let link: String

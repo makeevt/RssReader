@@ -9,16 +9,65 @@
 import UIKit
 
 class RssModelTableViewCell: UITableViewCell {
-
+    
+    //MARK:- Outlets
+    
+    @IBOutlet private weak var previewImageView: CircleImageView!
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var numberOfUnreadContainerView: UIView!
+    @IBOutlet private weak var numberOfUnreadLabel: UILabel!
+    
+    //MARK:- Public Properties
+    
+    var viewModel: RssSourceViewModel? {
+        didSet {
+            self.updateInterface()
+        }
+    }
+    
+    //MARK:- Public Methods
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        self.nameLabel.font = UIFont.helveticaNeueMediumFont(ofSize: 16)
+        self.nameLabel.textColor = UIColor.darkText
+        
+        self.numberOfUnreadLabel.font = UIFont.helveticaNeueMediumFont(ofSize: 14)
+        self.numberOfUnreadLabel.textColor = UIColor.white
+        
+        self.numberOfUnreadContainerView.layer.masksToBounds = true
+        self.numberOfUnreadContainerView.backgroundColor = UIColor.rssOrange
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.previewImageView.stopImageLoading()
+        self.resetInterface()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.numberOfUnreadContainerView.layer.cornerRadius = self.numberOfUnreadContainerView.frame.width/2
+    }
+    
+    //MARK:- Private methods
+    
+    private func updateInterface() {
+        guard let viewModel = self.viewModel else {
+            self.resetInterface()
+            return
+        }
+        self.nameLabel.text = viewModel.name
+        if let url = viewModel.imageUrl {
+            self.previewImageView.startImageLoading(urlPath: url)
+        }
+        self.numberOfUnreadLabel.text = "16"
+    }
+    
+    private func resetInterface() {
+        self.previewImageView.image = nil
+        self.nameLabel.text = ""
     }
     
 }

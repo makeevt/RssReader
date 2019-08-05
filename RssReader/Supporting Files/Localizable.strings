@@ -20,4 +20,6 @@
 
 "newsDetails.screenTitle"               = "NEWS";
 
-"rssModelsList.screenTitle"             = "RSS SOURCES";
+"rssModelsList.screenTitle"                         = "RSS SOURCES";
+"rssModelsList.placeholderTitle"                    = "You haven't got any RSS sources yet";
+"rssModelsList.placeholderAddRssButtonTitle"        = "Add new source";

@@ -1,12 +1,12 @@
 import Foundation
 
 protocol RssModelsListView: class {
-    func configure(viewModels: [RssItem])
+    func configure(viewModels: [RssSourceViewModel])
 }
 
 protocol RssModelsListPresenter: class {
     func didTriggerViewReadyEvent()
-    func didTriggerItemSelected(item: RssItem)
+    func didTriggerItemSelected(item: RssSourceViewModel)
 }
 
 class RssModelsListPresenterImpl: RssModelsListPresenter {
@@ -23,10 +23,10 @@ class RssModelsListPresenterImpl: RssModelsListPresenter {
     }
     
     func didTriggerViewReadyEvent() {
-        
+        self.view?.configure(viewModels: [RssSourceViewModel.init(name: "Test source RSS feed", link: "", imageUrl: "", description: "")])
     }
     
-    func didTriggerItemSelected(item: RssItem) {
+    func didTriggerItemSelected(item: RssSourceViewModel) {
         
     }
     

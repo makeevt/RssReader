@@ -6,8 +6,10 @@ class RssModelsListViewController: UIViewController, RssModelsListView {
     
     private struct Constants {
         static let screenTitle = "rssModelsList.screenTitle".localized.uppercased()
+        static let placeholderTitle = "rssModelsList.placeholderTitle".localized
+        static let placeholderAddRssButtonTitle = "rssModelsList.placeholderAddRssButtonTitle".localized
         static let rssModelsCellReuseID = "RssModelsCellReuseID"
-        static let estimatedRowHeight: CGFloat = 112.0
+        static let rowHeight: CGFloat = 112.0
     }
     
     //MARK:- Public properties
@@ -20,6 +22,7 @@ class RssModelsListViewController: UIViewController, RssModelsListView {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var placeholderView: UIView!
     @IBOutlet weak var placeholderLabel: UILabel!
+    @IBOutlet weak var placeholderAddModelButton: UIButton!
     
     //MARK:- Private properties
     
@@ -28,7 +31,7 @@ class RssModelsListViewController: UIViewController, RssModelsListView {
         return UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(addRssTapped))
     }()
     
-    private var viewModels: [RssItem] = []
+    private var viewModels: [RssSourceViewModel] = []
     
     
     // MARK: - Lifecycle
@@ -48,7 +51,7 @@ class RssModelsListViewController: UIViewController, RssModelsListView {
     
     // MARK: - Public methods
     
-    func configure(viewModels: [RssItem]) {
+    func configure(viewModels: [RssSourceViewModel]) {
         self.viewModels = viewModels
         self.placeholderView.isHidden = !viewModels.isEmpty
         self.tableView.isHidden = viewModels.isEmpty
@@ -61,6 +64,9 @@ class RssModelsListViewController: UIViewController, RssModelsListView {
         
     }
     
+    @IBAction func placeholderAddRssButtonTapped(_ sender: UIButton) {
+    }
+    
     // MARK: - Private methods
     
     private func configureTableView() {
@@ -68,15 +74,20 @@ class RssModelsListViewController: UIViewController, RssModelsListView {
         self.tableView.register(nibName, forCellReuseIdentifier: Constants.rssModelsCellReuseID)
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        self.tableView.rowHeight = UITableView.automaticDimension
-        self.tableView.estimatedRowHeight = Constants.estimatedRowHeight
+        self.tableView.rowHeight = Constants.rowHeight
         self.tableView.isHidden = true
     }
     
     private func configurePlaceholder() {
         self.placeholderLabel.font = UIFont.helveticaNeueLightFont(ofSize: 18)
         self.placeholderLabel.textColor = UIColor.gray
-//        self.placeholderLabel.attributedText = Constants.placeholderTitle.attributedStringWithKern(value: 1.0)
+        self.placeholderLabel.attributedText = Constants.placeholderTitle.attributedStringWithKern(value: 1.0)
+        
+        self.placeholderAddModelButton.apply(styles: Styles.RSSButton.primary)
+        self.placeholderAddModelButton.setTitle(Constants.placeholderAddRssButtonTitle, for: .normal)
+        self.placeholderAddModelButton.setImage(UIImage(named: "plus.icon"), for: .normal)
+        self.placeholderAddModelButton.tintColor = UIColor.white
+        self.placeholderAddModelButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
     }
     
 }
@@ -105,7 +116,7 @@ extension RssModelsListViewController: UITableViewDelegate, UITableViewDataSourc
             fatalError()
         }
         
-//        cell.configure
+        cell.viewModel = item
         
         return cell
     }

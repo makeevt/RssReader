@@ -12,9 +12,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RssModelsListViewController" customModule="RssReader" customModuleProvider="target">
             <connections>
+                <outlet property="placeholderAddModelButton" destination="4eT-xy-xw5" id="kk2-O1-1OG"/>
                 <outlet property="placeholderLabel" destination="iBy-i4-7Pk" id="6Wf-3F-9RL"/>
                 <outlet property="placeholderView" destination="UYj-5N-29K" id="59n-Gu-pas"/>
                 <outlet property="tableView" destination="t9x-Wf-gv2" id="S4w-Yg-Onx"/>
+                <outlet property="view" destination="srd-2A-4Sz" id="2n1-Vk-7g1"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -27,30 +29,34 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UYj-5N-29K">
-                    <rect key="frame" x="0.0" y="366" width="414" height="174.5"/>
+                    <rect key="frame" x="0.0" y="415" width="414" height="76.5"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="feedPlaceholder.icon" translatesAutoresizingMaskIntoConstraints="NO" id="vwe-uF-2oj">
-                            <rect key="frame" x="138" y="0.0" width="138" height="138"/>
-                            <constraints>
-                                <constraint firstAttribute="width" secondItem="vwe-uF-2oj" secondAttribute="height" multiplier="1:1" id="4OS-Hq-bOJ"/>
-                            </constraints>
-                        </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iBy-i4-7Pk">
-                            <rect key="frame" x="186" y="154" width="42" height="20.5"/>
+                            <rect key="frame" x="186" y="0.0" width="42" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4eT-xy-xw5">
+                            <rect key="frame" x="184" y="36.5" width="46" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="rzg-aD-GRQ"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                            <connections>
+                                <action selector="placeholderAddRssButtonTapped:" destination="-1" eventType="touchUpInside" id="flj-ph-IOi"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstItem="4eT-xy-xw5" firstAttribute="centerX" secondItem="UYj-5N-29K" secondAttribute="centerX" id="0o3-xB-Q9d"/>
+                        <constraint firstAttribute="bottom" secondItem="4eT-xy-xw5" secondAttribute="bottom" id="5Kq-pX-Sek"/>
                         <constraint firstItem="iBy-i4-7Pk" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="UYj-5N-29K" secondAttribute="leading" id="Bp0-3o-sNr"/>
-                        <constraint firstAttribute="bottom" secondItem="iBy-i4-7Pk" secondAttribute="bottom" id="COl-BO-Lhh"/>
-                        <constraint firstItem="vwe-uF-2oj" firstAttribute="top" secondItem="UYj-5N-29K" secondAttribute="top" id="Sut-hP-EVB"/>
-                        <constraint firstItem="iBy-i4-7Pk" firstAttribute="top" secondItem="vwe-uF-2oj" secondAttribute="bottom" constant="16" id="Zb6-w2-FAE"/>
+                        <constraint firstItem="4eT-xy-xw5" firstAttribute="top" secondItem="iBy-i4-7Pk" secondAttribute="bottom" constant="16" id="KeF-1o-gxp"/>
+                        <constraint firstItem="iBy-i4-7Pk" firstAttribute="top" secondItem="UYj-5N-29K" secondAttribute="top" id="cRY-pH-Z87"/>
                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="iBy-i4-7Pk" secondAttribute="trailing" id="fsO-gC-rsf"/>
                         <constraint firstItem="iBy-i4-7Pk" firstAttribute="centerX" secondItem="UYj-5N-29K" secondAttribute="centerX" id="kFb-TW-jxg"/>
-                        <constraint firstItem="vwe-uF-2oj" firstAttribute="centerX" secondItem="UYj-5N-29K" secondAttribute="centerX" id="sGa-ux-86u"/>
                     </constraints>
                 </view>
             </subviews>
@@ -60,7 +66,6 @@
                 <constraint firstItem="t9x-Wf-gv2" firstAttribute="leading" secondItem="46O-r3-S7r" secondAttribute="leading" id="F1r-im-I5p"/>
                 <constraint firstItem="t9x-Wf-gv2" firstAttribute="top" secondItem="46O-r3-S7r" secondAttribute="top" id="JO9-UQ-iKM"/>
                 <constraint firstItem="46O-r3-S7r" firstAttribute="bottom" secondItem="t9x-Wf-gv2" secondAttribute="bottom" id="Jfn-YG-Z3F"/>
-                <constraint firstItem="vwe-uF-2oj" firstAttribute="width" secondItem="srd-2A-4Sz" secondAttribute="width" multiplier="1:3" id="LVr-5F-gVh"/>
                 <constraint firstItem="UYj-5N-29K" firstAttribute="centerY" secondItem="46O-r3-S7r" secondAttribute="centerY" id="LsE-ST-Q4m"/>
                 <constraint firstItem="46O-r3-S7r" firstAttribute="trailing" secondItem="t9x-Wf-gv2" secondAttribute="trailing" id="NiU-fU-BZM"/>
                 <constraint firstItem="UYj-5N-29K" firstAttribute="leading" secondItem="46O-r3-S7r" secondAttribute="leading" id="g8K-Nv-1xj"/>
@@ -68,7 +73,4 @@
             <viewLayoutGuide key="safeArea" id="46O-r3-S7r"/>
         </view>
     </objects>
-    <resources>
-        <image name="feedPlaceholder.icon" width="768" height="768"/>
-    </resources>
 </document>
