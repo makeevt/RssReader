@@ -23,7 +23,7 @@ class RssModelsListPresenterImpl: RssModelsListPresenter {
     }
     
     func didTriggerViewReadyEvent() {
-        self.view?.configure(viewModels: [RssSourceViewModel.init(name: "Test source RSS feed", link: "", imageUrl: "", description: "", numberOfUnread: 31)])
+        self.view?.configure(viewModels: self.interactor.rssSourceModels)
     }
     
     func didTriggerItemSelected(item: RssSourceViewModel) {
