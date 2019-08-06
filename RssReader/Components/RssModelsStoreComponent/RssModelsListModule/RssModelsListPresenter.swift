@@ -30,7 +30,7 @@ class RssModelsListPresenterImpl: RssModelsListPresenter {
     }
     
     func didTriggerItemSelected(item: RssSourceViewModel) {
-        
+        self.router.showRssFeed()
     }
     
     func didTriggerItemDeleted(item: RssSourceViewModel) {

@@ -4,6 +4,7 @@ import UIKit
 
 protocol RssModelsListRouter {
     func showAddNewSource()
+    func showRssFeed()
 }
 
 class RssModelsListRouterImpl: RssModelsListRouter {
@@ -27,6 +28,12 @@ class RssModelsListRouterImpl: RssModelsListRouter {
         controller.modalTransitionStyle = .crossDissolve
         controller.configurator = AddNewRssSourceConfiguratorImpl(navigationController: navigationController, serviceLocator: serviceLocator)
         navigationController?.topViewController?.present(controller, animated: true, completion: nil)
+    }
+    
+    func showRssFeed() {
+        let controller = RssFeedViewController()
+        controller.configurator = RssFeedConfiguratorImpl(navigationController: navigationController, serviceLocator: serviceLocator)
+        navigationController?.pushViewController(controller, animated: true)
     }
     
 }
