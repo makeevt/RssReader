@@ -31,10 +31,6 @@ class AddNewRssSourceViewController: UIViewController, AddNewRssSourceView {
     @IBOutlet weak var addNewSourceButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    //MARK:- Private properties
-    
-
-    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {

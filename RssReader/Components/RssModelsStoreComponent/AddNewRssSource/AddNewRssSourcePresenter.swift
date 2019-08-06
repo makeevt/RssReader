@@ -33,9 +33,7 @@ class AddNewRssSourcePresenterImpl: AddNewRssSourcePresenter {
     
     func didTriggerAddAction(rssSourceLink: String) {
         self.view?.applyState(.loading)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-            self.view?.applyState(.error)
-        })
+        self.interactor.addNewRssSource(sourceUrlString: rssSourceLink)
     }
 }
 

@@ -1,10 +1,9 @@
 
 import Foundation
 import CoreData
-import QueryKit
 
 protocol AddNewRssSourceInteractor {
-
+    func addNewRssSource(sourceUrlString: String)
 }
 
 class AddNewRssSourceInteractorImpl: AddNewRssSourceInteractor {
@@ -13,6 +12,13 @@ class AddNewRssSourceInteractorImpl: AddNewRssSourceInteractor {
     
     init(serviceLocator: ServiceLocator) {
         self.serviceLocator = serviceLocator
+    }
+    
+    func addNewRssSource(sourceUrlString: String) {
+        guard let url = URL(string: "http://www.sports.ru/sports_docs.xml") else {
+            return
+        }
+        self.addNew()
     }
     
     func addNew() {
