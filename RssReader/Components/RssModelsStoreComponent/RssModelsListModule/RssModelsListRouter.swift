@@ -3,7 +3,7 @@ import Foundation
 import UIKit
 
 protocol RssModelsListRouter {
-    
+    func showAddNewSource()
 }
 
 class RssModelsListRouterImpl: RssModelsListRouter {
@@ -21,10 +21,10 @@ class RssModelsListRouterImpl: RssModelsListRouter {
         self.serviceLocator = serviceLocator
     }
     
-//    func showNewsDetailsPage(item: RssItem) {
+    func showAddNewSource() {
 //        let controller = NewsDetailsPageViewController()
 //        controller.configurator = NewsDetailsPageConfiguratorImpl(navigationController: navigationController, serviceLocator: serviceLocator, newsItem: item)
 //        navigationController?.pushViewController(controller, animated: true)
-//    }
+    }
     
 }

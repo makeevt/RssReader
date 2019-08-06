@@ -68,6 +68,8 @@
 		63B2B03422F867B100E98D54 /* CDRssSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B2B03322F867B100E98D54 /* CDRssSource.swift */; };
 		63B2B03622F86E9600E98D54 /* ManagedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B2B03522F86E9600E98D54 /* ManagedModel.swift */; };
 		63B2B03822F86F2D00E98D54 /* NSManagedObjectContext+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B2B03722F86F2D00E98D54 /* NSManagedObjectContext+Extensions.swift */; };
+		63B2B03B22F9A43900E98D54 /* CoreDataChangeTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B2B03A22F9A43900E98D54 /* CoreDataChangeTracker.swift */; };
+		63B2B03D22F9A59100E98D54 /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B2B03C22F9A59100E98D54 /* UITableView+Extensions.swift */; };
 		7DCFD9E96181A289F3A582AE /* Pods_RssReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0D9447F86AB4F6FF2872EC8 /* Pods_RssReader.framework */; };
 /* End PBXBuildFile section */
 
@@ -135,6 +137,8 @@
 		63B2B03322F867B100E98D54 /* CDRssSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDRssSource.swift; sourceTree = "<group>"; };
 		63B2B03522F86E9600E98D54 /* ManagedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedModel.swift; sourceTree = "<group>"; };
 		63B2B03722F86F2D00E98D54 /* NSManagedObjectContext+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+Extensions.swift"; sourceTree = "<group>"; };
+		63B2B03A22F9A43900E98D54 /* CoreDataChangeTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataChangeTracker.swift; sourceTree = "<group>"; };
+		63B2B03C22F9A59100E98D54 /* UITableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
 		90C5D0AFA68E66CB367A2059 /* Pods-RssReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RssReader.release.xcconfig"; path = "Pods/Target Support Files/Pods-RssReader/Pods-RssReader.release.xcconfig"; sourceTree = "<group>"; };
 		EB81ED7B141D1736B7179BF2 /* Pods-RssReader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RssReader.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RssReader/Pods-RssReader.debug.xcconfig"; sourceTree = "<group>"; };
 		F0D9447F86AB4F6FF2872EC8 /* Pods_RssReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RssReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -212,6 +216,7 @@
 		4CBEDEC3220E46D9004CB288 /* CoreDataHelpers */ = {
 			isa = PBXGroup;
 			children = (
+				63B2B03A22F9A43900E98D54 /* CoreDataChangeTracker.swift */,
 				63B2B03522F86E9600E98D54 /* ManagedModel.swift */,
 				4CBEDEC4220E46D9004CB288 /* Extensions */,
 				4CBEDEC7220E46D9004CB288 /* Stack */,
@@ -382,6 +387,7 @@
 				4CFDAE56220A2FF500D5442A /* Thread+Extensions.swift */,
 				4CBEDEBC220E43FD004CB288 /* UIColor+Extensions.swift */,
 				4CFDAE45220A2DC400D5442A /* UIFont+Extensions.swift */,
+				63B2B03C22F9A59100E98D54 /* UITableView+Extensions.swift */,
 				4C8F6BB722178E0B004CCCD6 /* UIViewController+Extensions.swift */,
 				4CBEDECF220E4750004CB288 /* URL+Extensions.swift */,
 			);
@@ -598,6 +604,7 @@
 				4C8F6BB32217746D004CCCD6 /* NewsDetailsPageViewController.swift in Sources */,
 				4CBEDECE220E471D004CB288 /* Synchronized.swift in Sources */,
 				633C7A6822F49C1A000D2C47 /* RssModelsListInteractor.swift in Sources */,
+				63B2B03D22F9A59100E98D54 /* UITableView+Extensions.swift in Sources */,
 				4CFDAE61220A380B00D5442A /* String+Extensions.swift in Sources */,
 				4CBEDECB220E46DA004CB288 /* RSSPersistentStack.swift in Sources */,
 				633C7A6022F47221000D2C47 /* DateFormatterProvider.swift in Sources */,
@@ -621,6 +628,7 @@
 				4CBEDEDB220E4C79004CB288 /* RssFeedConfigurator.swift in Sources */,
 				633C7A6E22F49C34000D2C47 /* RssModelsListRouter.swift in Sources */,
 				4CBEDEC2220E46BB004CB288 /* RSSModel+Loading.swift in Sources */,
+				63B2B03B22F9A43900E98D54 /* CoreDataChangeTracker.swift in Sources */,
 				4C8F6BA12217645D004CCCD6 /* LoadableImageView.swift in Sources */,
 				4CBEDEE3220E4C98004CB288 /* RssFeedInteractor.swift in Sources */,
 				4C8F6B9F221762D9004CCCD6 /* CircleImageView.swift in Sources */,

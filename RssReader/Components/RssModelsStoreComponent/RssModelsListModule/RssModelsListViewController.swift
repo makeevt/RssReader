@@ -9,7 +9,7 @@ class RssModelsListViewController: UIViewController, RssModelsListView {
         static let placeholderTitle = "rssModelsList.placeholderTitle".localized
         static let placeholderAddRssButtonTitle = "rssModelsList.placeholderAddRssButtonTitle".localized
         static let rssModelsCellReuseID = "RssModelsCellReuseID"
-        static let rowHeight: CGFloat = 112.0
+        static let rowHeight: CGFloat = 92.0
     }
     
     //MARK:- Public properties
@@ -31,8 +31,12 @@ class RssModelsListViewController: UIViewController, RssModelsListView {
         return UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(addRssTapped))
     }()
     
-    private var viewModels: [RssSourceViewModel] = []
-    
+    private var viewModels: [RssSourceViewModel] = [] {
+        didSet {
+            self.placeholderView.isHidden = !viewModels.isEmpty
+            self.tableView.isHidden = viewModels.isEmpty
+        }
+    }
     
     // MARK: - Lifecycle
     
@@ -53,18 +57,36 @@ class RssModelsListViewController: UIViewController, RssModelsListView {
     
     func configure(viewModels: [RssSourceViewModel]) {
         self.viewModels = viewModels
-        self.placeholderView.isHidden = !viewModels.isEmpty
-        self.tableView.isHidden = viewModels.isEmpty
         self.tableView.reloadData()
+    }
+    
+    func performChanges(_ changes: CoreDataChangeTransactionBatch<RssSourceViewModel>) {
+        for deleteTransaction in changes.deletedTransactions {
+            if let index = deleteTransaction.oldIndexPath?.row {
+                self.viewModels.remove(at: index)
+            }
+        }
+        for insertTransaction in changes.insertedTransactions {
+            if let index = insertTransaction.newIndexPath?.row {
+                self.viewModels.insert(insertTransaction.object, at: index)
+            }
+        }
+        for updateTransaction in changes.updatedTransactions {
+            if let index = updateTransaction.oldIndexPath?.row {
+                self.viewModels[index] = updateTransaction.object
+            }
+        }
+        self.tableView.processCacheTrackerChange(changes)
     }
     
     // MARK: - Actions
     
     @objc private func addRssTapped() {
-        
+        self.presenter.didTriggerAddNewSource()
     }
     
     @IBAction func placeholderAddRssButtonTapped(_ sender: UIButton) {
+        self.presenter.didTriggerAddNewSource()
     }
     
     // MARK: - Private methods
@@ -119,6 +141,18 @@ extension RssModelsListViewController: UITableViewDelegate, UITableViewDataSourc
         cell.viewModel = item
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            if let itemForDeletion = self.viewModels[safe: indexPath.row] {
+                self.presenter.didTriggerItemDeleted(item: itemForDeletion)
+            }
+        }
     }
     
 }

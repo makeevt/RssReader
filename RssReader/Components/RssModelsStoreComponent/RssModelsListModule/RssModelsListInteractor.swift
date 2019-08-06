@@ -1,13 +1,16 @@
 
 import Foundation
 import CoreData
+import QueryKit
 
 protocol RssModelsListInteractorOutput: class {
-    
+    func rssSourceModelsChanged(changes: CoreDataChangeTransactionBatch<RssSourceViewModel>)
 }
 
 protocol RssModelsListInteractor {
     var rssSourceModels: [RssSourceViewModel] { get }
+    func deleteRssSource(model: RssSourceViewModel)
+    func addNew()
 }
 
 class RssModelsListInteractorImpl: NSObject, RssModelsListInteractor {
@@ -15,45 +18,62 @@ class RssModelsListInteractorImpl: NSObject, RssModelsListInteractor {
     weak var output: RssModelsListInteractorOutput?
     
     private let serviceLocator: ServiceLocator
-    private var fetchedResultsController: NSFetchedResultsController<CDRssSource>?
+    private var coreDataTracker: CoreDataChangeTracker<CDRssSource, RssSourceViewModel>?
     
     var rssSourceModels: [RssSourceViewModel] {
-        guard let models = self.fetchedResultsController?.fetchedObjects, !models.isEmpty else {
-            return []
-        }
-        return models.map({ cdRssSource in
-            return RssSourceViewModel(name: cdRssSource.name,
-                                      link: cdRssSource.link,
-                                      imageUrl: cdRssSource.imageUrl,
-                                      description: cdRssSource.note,
-                                      numberOfUnread: Int(cdRssSource.numberOfUnread))
-        })
+        return self.coreDataTracker?.fetchedModels() ?? []
     }
     
     init(serviceLocator: ServiceLocator) {
         self.serviceLocator = serviceLocator
         super.init()
-    
-        self.configureFetchController()
-    }
-    
-    private func configureFetchController() {
-        let fetchRequest = NSFetchRequest<CDRssSource>(entityName: CDRssSource.entityName)
-        fetchRequest.sortDescriptors = [CDRssSource.addingDate.ascending()]
-        self.fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,
-                                                                  managedObjectContext: self.serviceLocator.rssPersistentContainer.mainContext,
-                                                                  sectionNameKeyPath: nil,
-                                                                  cacheName: nil)
-        try? self.fetchedResultsController?.performFetch()
-        self.fetchedResultsController?.delegate = self
-    }
-    
-}
-
-extension RssModelsListInteractorImpl: NSFetchedResultsControllerDelegate {
-    
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         
+        self.configureCoreDataChangeTracker()
+    }
+    
+    func addNew() {
+        self.serviceLocator.rssPersistentContainer.mainContext.performChangesAndSaveOrRollBack {
+            _ = CDRssSource.insertToContext(self.serviceLocator.rssPersistentContainer.mainContext, configure: { source in
+                source.uuid = UUID().uuidString
+                source.addingDate = Date()
+                source.name = "\(Date())"
+                source.link = ""
+                source.numberOfUnread = 8
+            })
+        }
+    }
+    
+    func deleteRssSource(model: RssSourceViewModel) {
+        let context = self.serviceLocator.rssPersistentContainer.mainContext
+        context.performChangesAndSaveOrRollBack {
+            let fetchRequest = NSFetchRequest<CDRssSource>(entityName: CDRssSource.entityName)
+            fetchRequest.predicate = CDRssSource.predicateForUuid(uuid: model.uuid)
+            fetchRequest.fetchLimit = 1
+            let result = try? context.fetch(fetchRequest)
+            guard let cdModelForDeletion = result?.first else {
+                return
+            }
+            context.delete(cdModelForDeletion)
+        }
+    }
+    
+    private func configureCoreDataChangeTracker() {
+        let request = CoreDataRequest(predicate: CDRssSource.defaultPredicate, sortDescriptors: [CDRssSource.addingDate.descending()])
+        let coreDataTracker = CoreDataChangeTracker<CDRssSource, RssSourceViewModel>(cacheRequest: request, context: self.serviceLocator.rssPersistentContainer.mainContext)
+        coreDataTracker.didChangeHandler = { [weak self] batch in
+            guard let self = self else { return }
+            self.output?.rssSourceModelsChanged(changes: batch)
+        }
+        coreDataTracker.modelBuilder = { cdModel in
+            return RssSourceViewModel(uuid: cdModel.uuid,
+                                      name: cdModel.name,
+                                      link: cdModel.link,
+                                      imageUrl: cdModel.imageUrl,
+                                      description: cdModel.note,
+                                      numberOfUnread: Int(cdModel.numberOfUnread))
+        }
+        coreDataTracker.performFetch()
+        self.coreDataTracker = coreDataTracker
     }
     
 }

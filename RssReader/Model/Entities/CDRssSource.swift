@@ -16,17 +16,27 @@ class CDRssSource: NSManagedObject, ManagedModel {
         return "CDRssSource"
     }
     
-    @NSManaged public var name: String
-    @NSManaged public var link: String
-    @NSManaged public var imageUrl: String?
-    @NSManaged public var note: String?
-    @NSManaged public var numberOfUnread: Int32
-    @NSManaged public var addingDate: Date
+    @NSManaged var uuid: String
+    @NSManaged var name: String
+    @NSManaged var link: String
+    @NSManaged var imageUrl: String?
+    @NSManaged var note: String?
+    @NSManaged var numberOfUnread: Int32
+    @NSManaged var addingDate: Date
     
 }
 
 extension CDRssSource {
     
-    public static var addingDate: Attribute<Date> { return Attribute("addingDate") }
+    static var uuid: Attribute<String> { return Attribute("uuid") }
+    static var addingDate: Attribute<Date> { return Attribute("addingDate") }
     
+    public static func predicateForUuid(uuid: String) -> NSPredicate {
+        return predicate(CDRssSource.uuid == uuid)
+    }
+    
+}
+
+extension Attribute where AttributeType: CDRssSource {
+    var uuidAttribute: Attribute<String> { return attribute(AttributeType.uuid) }
 }

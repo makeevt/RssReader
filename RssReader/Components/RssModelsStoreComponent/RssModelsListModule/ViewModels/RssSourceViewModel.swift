@@ -10,13 +10,15 @@ import Foundation
 
 struct RssSourceViewModel {
     
+    let uuid: String
     let name: String
     let link: String
     let imageUrl: String?
     let description: String?
     let numberOfUnread: Int?
     
-    init(name: String, link: String, imageUrl: String?, description: String?, numberOfUnread: Int?) {
+    init(uuid: String, name: String, link: String, imageUrl: String?, description: String?, numberOfUnread: Int?) {
+        self.uuid = uuid
         self.name = name
         self.link = link
         self.imageUrl = imageUrl

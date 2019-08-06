@@ -2,11 +2,14 @@ import Foundation
 
 protocol RssModelsListView: class {
     func configure(viewModels: [RssSourceViewModel])
+    func performChanges(_ changes: CoreDataChangeTransactionBatch<RssSourceViewModel>)
 }
 
 protocol RssModelsListPresenter: class {
     func didTriggerViewReadyEvent()
     func didTriggerItemSelected(item: RssSourceViewModel)
+    func didTriggerItemDeleted(item: RssSourceViewModel)
+    func didTriggerAddNewSource()
 }
 
 class RssModelsListPresenterImpl: RssModelsListPresenter {
@@ -28,6 +31,22 @@ class RssModelsListPresenterImpl: RssModelsListPresenter {
     
     func didTriggerItemSelected(item: RssSourceViewModel) {
         
+    }
+    
+    func didTriggerItemDeleted(item: RssSourceViewModel) {
+        self.interactor.deleteRssSource(model: item)
+    }
+    
+    func didTriggerAddNewSource() {
+        self.interactor.addNew()
+    }
+    
+}
+
+extension RssModelsListPresenterImpl: RssModelsListInteractorOutput {
+    
+    func rssSourceModelsChanged(changes: CoreDataChangeTransactionBatch<RssSourceViewModel>) {
+        self.view?.performChanges(changes)
     }
     
 }

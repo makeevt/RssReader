@@ -19,5 +19,6 @@ class RssModelsListConfiguratorImpl: RssModelsListConfigurator {
         let interactor = RssModelsListInteractorImpl(serviceLocator: serviceLocator)
         let presenter = RssModelsListPresenterImpl(view: viewController, router: router, interactor: interactor)
         viewController.presenter = presenter
+        interactor.output = presenter
     }
 }

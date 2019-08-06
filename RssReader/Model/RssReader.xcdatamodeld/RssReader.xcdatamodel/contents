@@ -7,8 +7,9 @@
         <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="note" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="numberOfUnread" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="uuid" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="CDRssSource" positionX="-63" positionY="-18" width="128" height="135"/>
+        <element name="CDRssSource" positionX="-63" positionY="-18" width="128" height="150"/>
     </elements>
 </model>
