@@ -38,7 +38,7 @@ class RssModelsListPresenterImpl: RssModelsListPresenter {
     }
     
     func didTriggerAddNewSource() {
-        self.interactor.addNew()
+        self.router.showAddNewSource()
     }
     
 }

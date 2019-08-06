@@ -22,9 +22,11 @@ class RssModelsListRouterImpl: RssModelsListRouter {
     }
     
     func showAddNewSource() {
-//        let controller = NewsDetailsPageViewController()
-//        controller.configurator = NewsDetailsPageConfiguratorImpl(navigationController: navigationController, serviceLocator: serviceLocator, newsItem: item)
-//        navigationController?.pushViewController(controller, animated: true)
+        let controller = AddNewRssSourceViewController()
+        controller.modalPresentationStyle = .overCurrentContext
+        controller.modalTransitionStyle = .crossDissolve
+        controller.configurator = AddNewRssSourceConfiguratorImpl(navigationController: navigationController, serviceLocator: serviceLocator)
+        navigationController?.topViewController?.present(controller, animated: true, completion: nil)
     }
     
 }

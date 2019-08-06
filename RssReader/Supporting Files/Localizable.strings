@@ -9,17 +9,21 @@
 "alert.ok" = "Ok";
 
 
-"rssFeed.screenTitle"                             = "RSS FEED";
-"rssFeed.placeholderTitle"                        = "RSS feed is empty";
+"rssFeed.screenTitle"                               = "RSS FEED";
+"rssFeed.placeholderTitle"                          = "RSS feed is empty";
 
-"rssFeed.updatingFailedAlert.title"               = "Updating failed";
-"rssFeed.updatingFailedAlert.message"             = "Something went wrong. Please, try again.";
+"rssFeed.updatingFailedAlert.title"                 = "Updating failed";
+"rssFeed.updatingFailedAlert.message"               = "Something went wrong. Please, try again.";
 
-"rssFeed.cell.titlePlaceholder"     = "Unknown title";
-"rssFeed.cell.datePlaceholder"      = "Unknown date";
+"rssFeed.cell.titlePlaceholder"                     = "Unknown title";
+"rssFeed.cell.datePlaceholder"                      = "Unknown date";
 
-"newsDetails.screenTitle"               = "NEWS";
+"newsDetails.screenTitle"                           = "NEWS";
 
 "rssModelsList.screenTitle"                         = "RSS SOURCES";
 "rssModelsList.placeholderTitle"                    = "You haven't got any RSS sources yet";
 "rssModelsList.placeholderAddRssButtonTitle"        = "Add new source";
+
+"addNewRssSource.titleLabelText"                    = "Please, enter the RSS feed target link:";
+"addNewRssSource.errorLabelText"                    = "Can't load RSS source, please try another";
+"addNewRssSource.addNewSourceButtonTitle"           = "ADD";

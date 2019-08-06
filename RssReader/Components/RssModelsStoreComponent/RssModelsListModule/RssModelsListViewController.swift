@@ -108,7 +108,6 @@ class RssModelsListViewController: UIViewController, RssModelsListView {
         self.placeholderAddModelButton.apply(styles: Styles.RSSButton.primary)
         self.placeholderAddModelButton.setTitle(Constants.placeholderAddRssButtonTitle, for: .normal)
         self.placeholderAddModelButton.setImage(UIImage(named: "plus.icon"), for: .normal)
-        self.placeholderAddModelButton.tintColor = UIColor.white
         self.placeholderAddModelButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
     }
     

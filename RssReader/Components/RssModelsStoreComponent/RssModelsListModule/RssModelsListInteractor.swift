@@ -10,10 +10,9 @@ protocol RssModelsListInteractorOutput: class {
 protocol RssModelsListInteractor {
     var rssSourceModels: [RssSourceViewModel] { get }
     func deleteRssSource(model: RssSourceViewModel)
-    func addNew()
 }
 
-class RssModelsListInteractorImpl: NSObject, RssModelsListInteractor {
+class RssModelsListInteractorImpl: RssModelsListInteractor {
     
     weak var output: RssModelsListInteractorOutput?
     
@@ -26,21 +25,8 @@ class RssModelsListInteractorImpl: NSObject, RssModelsListInteractor {
     
     init(serviceLocator: ServiceLocator) {
         self.serviceLocator = serviceLocator
-        super.init()
         
         self.configureCoreDataChangeTracker()
-    }
-    
-    func addNew() {
-        self.serviceLocator.rssPersistentContainer.mainContext.performChangesAndSaveOrRollBack {
-            _ = CDRssSource.insertToContext(self.serviceLocator.rssPersistentContainer.mainContext, configure: { source in
-                source.uuid = UUID().uuidString
-                source.addingDate = Date()
-                source.name = "\(Date())"
-                source.link = ""
-                source.numberOfUnread = 8
-            })
-        }
     }
     
     func deleteRssSource(model: RssSourceViewModel) {

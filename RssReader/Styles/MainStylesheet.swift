@@ -42,6 +42,7 @@ struct MainStylesheet: Stylesheet {
             button.clipsToBounds = true
             button.layer.cornerRadius = CGFloat(Constants.cornerRadius)
             button.backgroundColor = UIColor.rssOrange
+            button.tintColor = UIColor.white
             button.setTitleColor(UIColor.white, for: .normal)
             button.titleLabel?.font = UIFont.helveticaNeueRegularFont(ofSize: 16)
         }
